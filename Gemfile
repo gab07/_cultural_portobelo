@@ -13,8 +13,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'devise'
-gem 'paperclip', '~> 4.3'
-gem 'aws-sdk', '< 2.0'
+gem 'paperclip', '< 4.0'
 gem 'masonry-rails'  
 
 group :development, :test do

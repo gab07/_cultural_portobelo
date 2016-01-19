@@ -40,11 +40,6 @@ GEM
     autoprefixer-rails (6.0.2)
       execjs
       json
-    aws-sdk (1.66.0)
-      aws-sdk-v1 (= 1.66.0)
-    aws-sdk-v1 (1.66.0)
-      json (~> 1.4)
-      nokogiri (>= 1.4.4)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -93,19 +88,17 @@ GEM
     masonry-rails (0.2.4)
       railties
     mime-types (2.99)
-    mimemagic (0.3.0)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
-    paperclip (4.3.2)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      cocaine (~> 0.5.5)
+    paperclip (3.5.4)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
       mime-types
-      mimemagic (= 0.3.0)
     pg (0.18.4)
     rack (1.6.4)
     rack-test (0.6.3)
@@ -184,7 +177,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk (< 2.0)
   bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
@@ -192,7 +184,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   masonry-rails
-  paperclip (~> 4.3)
+  paperclip (< 4.0)
   pg
   rails (= 4.2.3)
   rails_12factor
