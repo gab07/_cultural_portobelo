@@ -3,17 +3,17 @@
 @import 'bootstrap';
 @import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
 
-$body-bg: #ecf0f1;
-$font-family-sans-serif: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$body-bg: #E4F1FE;
+// $font-family-sans-serif: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 // $btn-default-bg: white;
 // // $navbar-default-bg: ;
 // $btn-primary-bg: green; // Boton de registrate
 // $btn-primary-border: #2ecc71;
 // $navbar-default-link-color: #7f8c8d;
 // $navbar-default-brand-color: #2ecc71; 
-// $navbar-height: 45px;
+$navbar-height: 100px;
 
 @import 'bootstrap';
 .center {
-	text-align: center
+	padding: 7px;
 }

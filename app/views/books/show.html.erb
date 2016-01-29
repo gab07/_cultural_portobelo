@@ -1,22 +1,47 @@
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @book.price %>
-</p>
-
-<p>
-  <strong>Publisher:</strong>
-  <%= @book.publisher %>
-</p>
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
+
+<div class="row">
+	<div class="col-md-offset-4 col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-heading center">
+				<%= image_tag @book.cover.url(:medium) %>
+			</div>
+			<div class="panel-body">
+				<ul class="book_info">
+					<li>
+						<p><%= @book.price %></p>
+					</li>
+					<li>
+						<p><%= @book.title %></p>
+					</li>
+					<li>
+						<p><%= @book.author %></p>
+					</li>
+					<li>
+						<p><%= @book.publisher %></p>
+					</li>
+					<li>
+						<p><%= @book.publication_year %></p>
+					</li>
+					<li>
+						<p><%= @book.isbn %></p>
+					</li>
+					<li>
+						<p><%= @book.pages %></p>
+					</li>
+					<li>
+						<p><%= @book.binding_type %></p>
+					</li>
+					<li>
+						<p><%= @book.language %></p>
+					</li>
+				</ul>
+			<% if current_user  %>
+				<%= link_to edit_book_path(@book)  do %>
+				  <span class="glyphicon glyphicon-pencil"></span> Edit
+				<% end %>
+			<% end %>
+			</div>
+		</div>
+	</div>
+</div>

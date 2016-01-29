@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
-  resources :books
-
-  devise_for :users
-  
   root 'books#index'
+  
+  resources :books
+  resources :searches
+  devise_for :users
+  devise_scope :user do
+    get "/admin", to: "devise/sessions#new"
+    get "logout", to: "devise/sessions#destroy", as: :signout
+  end
+
+  
   get 'about' => 'pages#about' #creates about_path
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

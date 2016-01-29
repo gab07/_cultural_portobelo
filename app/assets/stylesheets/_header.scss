@@ -1,0 +1,11 @@
+a.navbar-brand {
+	padding: 5px;
+}
+ul.nav li a{
+	padding: 65px 50px 0 30px;
+	font-size: 24px;
+}
+//Remove the default bootstrap margin from the main header
+nav.navbar.navbar-default {
+	margin-bottom: 0;
+}

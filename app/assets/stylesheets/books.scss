@@ -2,19 +2,56 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#pins {
+#books {
 	margin: 0 auto;
+	height: 200px;
+}
+.main_content {
+	width: 100%;
+	height: 1200px;
+	border-radius: 3px;
+	background-color: white;
+	padding: 20px;
 }
 .box {
 	margin: 5px;
 	width: 214px;
-}
-.box img {
-	width: 100%;
+	height: 42º0px;
+	img {
+		width: 100%;
+		overflow: inherit;
+	}
 }
 #index_title {
 	color: #7f8c8d;
+	font-weight: bold;
+	font-size: 17px;
+}
+#index_author {
+	color: #7F7F7F;
 }
 .actions a {
 	color: #7f8c8d;
+}
+.side_menu {
+	width: 100%;
+	height: 300px;
+	border-radius: 3px;
+	background-color: white;
+	padding: 20px;
+}
+.novedades {
+	text-align: center;
+}
+p.categorias_sidemenu {
+	text-align: center;
+}
+.center {
+	text-align: center;
+}
+.book_info {
+	line-height: 0;
+	li {
+		list-style-type: none;
+	}
 }

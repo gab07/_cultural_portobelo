@@ -11,4 +11,12 @@ class Book < ActiveRecord::Base
 	validates :binding_type, presence: true
 	validates :price, presence: true
 	validates :cover, presence: true
+
+	def self.search(search)
+		if search 
+			where(["title LIKE ?","%#{search}%"])
+		else
+			all
+		end
+	end
 end
