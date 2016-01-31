@@ -2,6 +2,7 @@ class SearchesController < ApplicationController
 	def new 
 		@search = Search.new
 		@categories = Book.uniq.pluck(:category)
+		@books = Book.search(params[:search])
 	end
 
 	def create
@@ -11,6 +12,8 @@ class SearchesController < ApplicationController
 
 	def show
 		@search = Search.find(params[:id])
+		@categories = Book.uniq.pluck(:category)
+		@books = Book.search(params[:search])
 	end
 
 

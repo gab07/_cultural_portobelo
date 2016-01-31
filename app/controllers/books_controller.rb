@@ -3,9 +3,14 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.search(params[:search])
+    @search = Search.new
+    @categories = Book.uniq.pluck(:category)
   end
 
   def show
+    @search = Search.find(params[:id])
+    @categories = Book.uniq.pluck(:category)
+    @books = Book.search(params[:search])
   end
 
   def new
