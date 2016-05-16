@@ -28,6 +28,23 @@
     <%= f.label :publisher %><br>
     <%= f.text_field :publisher %>
   </div>
+
+
+  <div class="form-group">
+    <%= f.label :Categoria %><br>
+      <% @categories.each do |category| -%>
+
+        <%= fields_for 'category[]' , category do |category_fields| -%>
+
+        <%= check_box_tag "category[]", category.id %>  <%=category.name %>
+
+        <% end -%>
+
+      <% end -%>
+  </div>
+
+
+
   <div class="form-group">
     <%= f.label :publication_year %><br>
     <%= f.select :publication_year, (Time.zone.now.year - 70)..(Time.zone.now.year + 1) %>

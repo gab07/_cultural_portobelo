@@ -1,5 +1,7 @@
 class Book < ActiveRecord::Base
-	has_many :categories
+	has_many :categories, through: :book_category_relations
+	has_many :book_category_relations
+
 	has_attached_file :cover,
 										:styles => { :medium => '300x300', :thumb => '100x100' }
   validates_attachment :cover, content_type: { content_type: /\Aimage\/.*\Z/ }

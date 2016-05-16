@@ -17,7 +17,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-    @categories = [ 'Procesal Penal','Comercial', 'Civil','Familia']
+    @categories = Category.all
   end
 
   def edit
@@ -26,6 +26,11 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
       if @book.save
+        if params[:category]
+          params[:category].each do |cat|
+            BookCategoryRelation.create(category_id: cat, book_id: @book.id)
+          end
+        end
         redirect_to @book, notice: 'Book was successfully created.'
       else
       render :new

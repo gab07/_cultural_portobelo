@@ -24,17 +24,13 @@
 						<p><%= @book.publication_year %></p>
 					</li>
 					<li>
-						<p><%= @book.isbn %></p>
+						<% @book.categories.each do |category| %>
+							<p>
+							 <%= category.name %>
+							</p>
+						<% end %>
 					</li>
-					<li>
-						<p><%= @book.pages %></p>
-					</li>
-					<li>
-						<p><%= @book.binding_type %></p>
-					</li>
-					<li>
-						<p><%= @book.language %></p>
-					</li>
+			
 				</ul>
 			<% if current_user  %>
 				<%= link_to edit_book_path(@book)  do %>
