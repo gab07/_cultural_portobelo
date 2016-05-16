@@ -32,11 +32,11 @@
 	<div class="col-md-8">
 		<h1>Resultados</h1>
 		<p><%= link_to "Atras", new_search_path %></p>
-		<% if @search.search_books.empty? %>
+		<% if @search.find_books.empty? %>
 		<p>No se encontraron resultados</p>
 		<% else %>
 		<div id="books" class="transitions-enabled">
-			<% @search.search_books.each do |c| %>
+			<% @search.find_books.each do |c| %>
 			<div class="panel panel-default">
 				<div class="panel-heading center">
 					<%= link_to image_tag(c.cover.url(:medium)), c %>

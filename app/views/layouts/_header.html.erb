@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav navbar-left">
         <li><%= link_to 'Inicio', root_path %></li>
         <li><%= link_to 'Editorial', about_path %></li>
-        <li><%= link_to 'Contáctenos', about_path %></li>
+        <li><%= link_to 'Contáctenos', new_contact_form_path %></li>
 
         <% if user_signed_in? %>
               <li class="header_new_link"><%= link_to new_book_path do %>

@@ -1,26 +1,4 @@
 <div class="row">
-  <div class="col-md-9">
-    <nav class="subheader">
-      <ul>
-        <li>Derecho</li>
-        <li>Psicología</li>
-        <li>Arquitectura</li>
-        <li>Nacionales</li>
-        <li>Importados</li>
-        <li>Códigos</li>
-      </ul>
-    </nav>
-  </div>
-  <div class="col-md-3">
-    <%= form_tag books_path, :method => 'get', :class => 'searchbar' do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search" %> <br>
-    <%= link_to "Busqueda avanzada", new_search_path %>
-    <% end %>
-  </div>
-</div>
-
-<div class="row">
 
   <div class="col-md-4">
     <h1>Búsqueda Avanzada</h1>
@@ -31,11 +9,6 @@
         <%= s.label :keywords %> <br>
         <%= s.text_field :keywords %>
       </div>
-
-      <div class="field">
-          <%= s.label :category %> <br>
-          <%= s.select :category, options_for_select(@categories), :include_blank => true %>
-        </div>
 
       <div class="field">
           <p><%= s.label :min_price, "Precio Mínimo" %> - <%= s.text_field :min_price, size: 10 %> </p>

@@ -6,7 +6,7 @@ class SearchesController < ApplicationController
 	end
 
 	def create
-		@search = Search.create(search_params)
+		@search = Search.create!(search_params)
 		redirect_to @search
 	end
 
@@ -14,6 +14,15 @@ class SearchesController < ApplicationController
 		@search = Search.find(params[:id])
 		@categories = Book.uniq.pluck(:category)
 		@books = Book.search(params[:search])
+	end
+
+	def update
+		@search = Search.find params[:id]
+		  if @search.update(search_params)
+        redirect_to @search
+      else
+        render :edit
+      end
 	end
 
 

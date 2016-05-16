@@ -17,6 +17,7 @@ gem 'devise'
 gem 'paperclip', '~> 4.3'
 gem 'aws-sdk', '< 2.0'
 gem 'masonry-rails'  
+gem 'whenever', require: false
 
 group :development, :test do
   gem 'byebug'

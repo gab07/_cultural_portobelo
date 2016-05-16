@@ -2,20 +2,22 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = Book.search(params[:search])
+    if @books.nil?
+      @books = Book.search(params[:search])
+    end
     @search = Search.new
-    @categories = Book.uniq.pluck(:category)
   end
 
   def show
-    @search = Search.find(params[:id])
-    @categories = Book.uniq.pluck(:category)
+    if params[:id].nil?
+      @search = Search.find(params[:id])
+    end
     @books = Book.search(params[:search])
   end
 
   def new
     @book = Book.new
-    @categories = Book.uniq.pluck(:category)
+    @categories = [ 'Procesal Penal','Comercial', 'Civil','Familia']
   end
 
   def edit
@@ -49,6 +51,6 @@ class BooksController < ApplicationController
     end
 
     def book_params
-      params.require(:book).permit(:title, :author, :price, :publisher, :publication_year, :isbn, :pages, :binding_type, :language, :price, :cover, :category)
+      params.require(:book).permit(:title, :author, :price, :publisher, :publication_year, :cover, :country_of_origin)
     end
 end
