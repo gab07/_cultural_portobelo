@@ -7,8 +7,6 @@ class Book < ActiveRecord::Base
 	validates :title, presence: true
 	validates :author, presence: true
 	validates :publisher, presence: true
-	validates :pages, presence: true
-	validates :binding_type, presence: true
 	validates :price, presence: true
 	validates :cover, presence: true
 
