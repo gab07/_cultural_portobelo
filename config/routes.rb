@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :books
   resources :searches
   resources :contact_forms
-  resources :category
+  resources :categories
   devise_for :users
   devise_scope :user do
     get "/admin", to: "devise/sessions#new"
