@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  resources :categories
+  resources :categories
   root 'books#index'
   
   resources :books
   resources :searches
   resources :contact_forms
-  resources :categories
   devise_for :users
   devise_scope :user do
     get "/admin", to: "devise/sessions#new"
