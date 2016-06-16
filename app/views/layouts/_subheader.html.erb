@@ -11,14 +11,5 @@
       </ul>
     </nav>
   </div>
-  <div class="col-md-3">
-    <%= form_for Search.new, html: {class: "pure-form"} do |s| %>
-
-      <div class="field">
-        <%= s.label :keywords %> 
-        <%= s.text_field :keywords %>
-      </div>
-    <% end %>
-    <%= link_to "Busqueda avanzada", new_search_path %>
-  </div>
+  
 </div>

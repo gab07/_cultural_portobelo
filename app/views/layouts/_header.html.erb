@@ -20,13 +20,16 @@
 
         <% if user_signed_in? %>
               <li class="header_new_link"><%= link_to new_book_path do %>
-                <span class="glyphicon glyphicon-plus"></span> Nuevo
+                  <span class="glyphicon glyphicon-plus"></span> Producto
+                <% end %>
               </li>
-            <% end %>
+              <li class=""><%= link_to new_category_path do %>
+                  <span class="glyphicon glyphicon-plus"></span> Categoria
+                <% end %>
+              </li>
             <li><%= link_to "Configuración", edit_user_registration_path %></li>
             <li><%= link_to 'Salir', destroy_user_session_path, method: :delete %></li>
         <% end %>
-
 
       </ul>
     </div><!-- /.navbar-collapse -->

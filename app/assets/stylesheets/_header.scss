@@ -2,10 +2,14 @@ a.navbar-brand {
 	padding: 5px;
 }
 ul.nav li a{
-	padding: 65px 50px 0 30px;
+	padding: 65px 49px -1px 0px;
 	font-size: 24px;
 }
 //Remove the default bootstrap margin from the main header
 nav.navbar.navbar-default {
 	margin-bottom: 0;
+}
+.navbar-left {
+	 padding-top: 60px;
+   padding-left: 27px;
 }

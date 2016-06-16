@@ -5,7 +5,6 @@ class BooksController < ApplicationController
     if @books.nil?
       @books = Book.search(params[:search])
     end
-    @search = Search.new
   end
 
   def show
