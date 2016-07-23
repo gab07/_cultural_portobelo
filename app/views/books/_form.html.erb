@@ -32,15 +32,15 @@
 
   <div class="form-group">
     <%= f.label :Categoria %><br>
-      <% @categories.each do |category| -%>
-        <%= fields_for 'category[]' , category do |category_fields| -%>
+      <% Category.all.each do |category| %>
+        <%= fields_for 'category[]' , category do |category_fields| %>
           <ul class="category_list">
             <li class="category_name">
               <%= check_box_tag "category[]", category.id %>  <%=category.name %>
             </li>
           </ul>
-        <% end -%>
-      <% end -%>
+        <% end %>
+      <% end %>
   </div>
 
 

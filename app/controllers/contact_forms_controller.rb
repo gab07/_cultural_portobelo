@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class ContactFormsController < ApplicationController
   before_action :set_contact_form, only: [:show, :edit, :update, :destroy]
 
@@ -24,16 +26,11 @@ class ContactFormsController < ApplicationController
   # POST /contact_forms
   # POST /contact_forms.json
   def create
-    @contact_form = ContactForm.new(contact_form_params)
-
-    respond_to do |format|
-      if @contact_form.save
-        format.html { redirect_to @contact_form, notice: 'Contact form was successfully created.' }
-        format.json { render :show, status: :created, location: @contact_form }
-      else
-        format.html { render :new }
-        format.json { render json: @contact_form.errors, status: :unprocessable_entity }
-      end
+  @contact_form = ContactForm.new(contact_form_params)
+    if @contact_form.save
+      redirect_to '/', notice: '¡Gracias por su comentario!'
+    else
+      render :new 
     end
   end
 

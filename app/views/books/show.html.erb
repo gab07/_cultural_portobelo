@@ -9,26 +9,27 @@
 			<div class="panel-body">
 				<ul class="book_info">
 					<li>
-						<p><%= @book.price %></p>
+						<p>Precio:<%= @book.price %></p>
 					</li>
 					<li>
-						<p><%= @book.title %></p>
+						<p>Título:<%= @book.title %></p>
 					</li>
 					<li>
-						<p><%= @book.author %></p>
+						<p>Autor: <%= @book.author %></p>
 					</li>
 					<li>
-						<p><%= @book.publisher %></p>
+						<p>Editorial: <%= @book.publisher %></p>
 					</li>
 					<li>
-						<p><%= @book.publication_year %></p>
+						<p>Año de publicación: <%= @book.publication_year %></p>
 					</li>
 					<li>
-						<% @book.categories.each do |category| %>
-							<p>
-							 <%= category.name %>
-							</p>0
-						<% end %>
+						<p>Categoria:</p>
+							<% @book.categories.each do |category| %>
+								<p>
+									<%= category.name %>
+								</p>
+							<% end %>
 					</li>
 			
 				</ul>
