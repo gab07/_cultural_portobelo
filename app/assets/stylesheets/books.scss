@@ -4,7 +4,7 @@
 
 #books {
 	margin: 0 auto;
-	height: 200px;
+	height: 100px;
 }
 .main_content {
 	width: 100%;
@@ -15,8 +15,8 @@
 }
 .box {
 	margin: 5px;
-	width: 214px;
-	height: 420px;
+	width: 175px;
+	height: 350px;
 	img {
 		width: 100%;
 		overflow: inherit;
@@ -25,10 +25,11 @@
 #index_title {
 	color: #7f8c8d;
 	font-weight: bold;
-	font-size: 17px;
+	font-size: 13px;
 }
 #index_author {
 	color: #7F7F7F;
+	font-size: 11px;
 }
 .actions a {
 	color: #7f8c8d;

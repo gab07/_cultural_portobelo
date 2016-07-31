@@ -2,16 +2,10 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    if @books.nil?
-      @books = Book.search(params[:search])
-    end
+    @books = Book.recent.paginate(:page => params[:page], :per_page => 12)
   end
 
   def show
-    if params[:id].nil?
-      @search = Search.find(params[:id])
-    end
-    @books = Book.search(params[:search])
   end
 
   def new
@@ -37,7 +31,11 @@ class BooksController < ApplicationController
   end
 
   def update
+    @book = Book.find(params[:id])
     if @book.update(book_params)
+      @category_id = params[:category]
+      @category_id = @category_id.first.to_i
+      BookCategoryRelation.create(category_id: @category_id, book_id: @book.id)
       redirect_to @book, notice: 'Book was successfully updated.' 
     else
       render :edit 

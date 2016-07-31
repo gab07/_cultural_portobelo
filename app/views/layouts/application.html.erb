@@ -8,6 +8,7 @@
 </head>
 <body>
 	<%= render 'layouts/header'%>
+	<%= render 'books/books_filters' %>
 
 	<div class="container ">
 		<div class="row">
@@ -19,6 +20,8 @@
 		</div>
 		<%= yield %>
 	</div>
-
+	<script>
+	  var router = new Router()
+	</script>
 </body>
 </html>

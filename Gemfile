@@ -15,7 +15,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'pry'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 gem 'paperclip', '~> 4.3'
+gem 'taps'
+gem 'twitter-bootstrap-rails'
+gem 'figaro'
 gem 'aws-sdk', '< 2.0'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'whenever', require: false
@@ -30,5 +35,5 @@ group :development, :test do
 end
 
 group :production do
-	gem 'rails_12factor'
+	gem 'rails_12factor', group: :production
 end

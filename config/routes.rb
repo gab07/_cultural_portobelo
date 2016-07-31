@@ -2,17 +2,23 @@ Rails.application.routes.draw do
   resources :categories
   root 'books#index'
   
+  namespace :api, defaults: { format: :json } do
+    resources :books, only: [:index]
+  end
+  
   resources :books
-  resources :searches
   resources :contact_forms
   devise_for :users
+
+
+
   devise_scope :user do
     get "/admin", to: "devise/sessions#new"
     get "logout", to: "devise/sessions#destroy", as: :signout
   end
 
   
-  get 'about' => 'pages#about' #creates about_path
+  get 'about' => 'pages#about' #creates abocut_path
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

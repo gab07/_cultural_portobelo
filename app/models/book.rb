@@ -2,6 +2,8 @@ class Book < ActiveRecord::Base
 	has_many :categories, through: :book_category_relations
 	has_many :book_category_relations
 
+	accepts_nested_attributes_for :categories
+
 	has_attached_file :cover,
 										:styles => { :medium => '300x300', :thumb => '100x100' }
   validates_attachment :cover, content_type: { content_type: /\Aimage\/.*\Z/ }
@@ -12,23 +14,10 @@ class Book < ActiveRecord::Base
 	validates :price, presence: true
 	validates :cover, presence: true
 
-	def self.search(search)
-		if search
+	scope :search, -> query { where("lower(title) LIKE ? OR lower(author) LIKE ? OR lower(publisher) LIKE ? OR lower(publication_year) LIKE ? OR lower(country_of_origin) LIKE ? OR lower(description) LIKE ?", 
+      "%#{query}%".downcase, "%#{query}%".downcase, "%#{query}%".downcase, "%#{query}%".downcase, "%#{query}%".downcase, "%#{query}%".downcase) }
 
-			books = Book.all
-
-			books = where(["title LIKE ?","%#{search}%"])
-			books = where(["author LIKE ?","%#{search}%"])
-			books = where(["publisher LIKE ?","%#{search}%"])
-			books = where(["publication_year LIKE ?","%#{search}%"])
-			books = where(["isbn LIKE ?","%#{search}%"])
-
-			return books
-
-		else
-			puts "no se encontraron resultados"
-			all
-		end
+	def self.recent
+		all.order("id DESC")
 	end
-
 end

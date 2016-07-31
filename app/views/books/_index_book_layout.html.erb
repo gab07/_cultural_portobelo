@@ -1,0 +1,12 @@
+<div class="col-sm-4 book-wrapper">
+  <a href="<%= product_path(book.id) %>">
+    <div class="site-book">
+      <div class="book-details-index"> 
+        <p id="title-index"><%= book.title %></p>       
+          <p id="price-index">$<%= book.price.to_i %></p>
+      </div>
+      <%= image_tag book.img.url, class: "book-img"%>
+    </div>
+  </a>
+  <br>
+</div>
