@@ -1,0 +1,13 @@
+/* line 1, /Users/fahenao/cultural_portobelo/app/assets/stylesheets/index.scss */
+.books {
+  margin-left: 98px;
+  top: 0;
+  max-width: 1600px;
+  padding-bottom: 100px;
+  position: absolute;
+}
+/* line 7, /Users/fahenao/cultural_portobelo/app/assets/stylesheets/index.scss */
+.books img {
+  min-height: 275px;
+  max-height: 275px;
+}
