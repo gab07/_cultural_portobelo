@@ -1,19 +1,16 @@
-<div class="row books_wrapper">
-  
-  <div class="col-md-8 main_content">
+<div class="row">
+  <div class="col-md-12 all-books">
   <!--******* @books = Book.all ******-->
-    <div id="books" class="transitions-enabled">
-
-
+    <div id="books" class="transitions-enabled clearfix books">
       <% @books.each do |book| %>
       <div class="box panel panel-default">
         <%= link_to image_tag(book.cover.url(:medium)), book %>
         <div class="panel-body">
-          <p id="index_title"><%= book.title %> </p>
+          <p id="index_title">
+            <%=h truncate(book.title, :length => 25, :omission => '...') %>
+          </p>
           <p id="index_author"><%= book.author %> </p>
           <p id="index_author"><%= book.price %>0 </p>
-          
-
           <% if current_user %>
             <div class="actions">
               <%= link_to edit_book_path(book) do %>
@@ -24,15 +21,15 @@
               <% end %>
             </div>
           <% end %>
-
         </div>
       </div>
     <% end %>
     </div>
-    
-    <div class="pagination">
-      <%= will_paginate @books, renderer: BootstrapPagination::Rails, class: "pagination pagination-centered" %>
-    </div>
-
   </div>
+</div>
+
+<div class="row">
+  <div class="pagination">
+    <%= will_paginate @books, renderer: BootstrapPagination::Rails, class: "pagination pagination-centered" %>
+  </div>    
 </div>

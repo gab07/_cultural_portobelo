@@ -1,4 +1,11 @@
-.main_content {
-	min-width: 902px;
-	left: 127px;
+.books {
+   margin-left:98px;
+   top:0;
+   max-width:1600px;
+   padding-bottom:100px;
+   position:absolute;
+   img {
+   	min-height: 275px;
+   	max-height: 275px;
+   }
 }

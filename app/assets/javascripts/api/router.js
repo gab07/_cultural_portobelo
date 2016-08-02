@@ -11,7 +11,5 @@ Router.prototype.listener = function (){
     router.collection.fetch(query, function () {
       router.BookComponent.render()
     })
-    // $(event.currentTarget).after(query)
   })
 }
-

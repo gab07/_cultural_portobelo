@@ -7,4 +7,6 @@ json.array! @books.each do |book|
   json.publication_year book.publication_year
   json.country_of_origin book.country_of_origin
   json.description book.description
+  json.price book.price
+
 end

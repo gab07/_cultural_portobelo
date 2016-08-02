@@ -7,21 +7,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<%= render 'layouts/header'%>
-	<%= render 'books/books_filters' %>
-
 	<div class="container ">
 		<div class="row">
-		<div class="col-md-4">
-		<% flash.each do |name, msg| %>
-			<%= content_tag(:div, msg, class: 'alert alert-info') %>
-		<% end %>
-		</div>
+			<%= render 'layouts/header'%>
+			<%= render 'books/books_filters' %>
+				<div class="row flash-alerts">
+						<% if flash[:alert] %>
+					<div class="alert alert-info" role="alert">
+					  	<p class="flash-error"><%= flash[:alert] %></p>
+					</div>
+					 	<% end %>
+					 	<% if flash[:notice] %>
+					<div class="alert alert-info" role="alert">
+					  	<p class="flash-notice"><%= flash[:notice] %></p>
+					</div>
+					 	<% end %>
+				</div>
 		</div>
 		<%= yield %>
+		
 	</div>
 	<script>
 	  var router = new Router()
 	</script>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
