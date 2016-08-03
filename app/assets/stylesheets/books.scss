@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.all-books {
+	a:hover {
+		color: black;
+	}
+}
 #books {
 	margin: 0 auto;
 }
@@ -21,15 +26,24 @@
 		overflow: inherit;
 	}
 }
-#index_title {
-	color: #7f8c8d;
-	font-weight: bold;
-	font-size: 13px;
+.panel-body {
+	p {
+		font-style: normal;
+	}
+	#index-title {
+		color: #7f8c8d;
+		font-weight: bold;
+		font-size: 13px;
+	}
+	#index-author {
+		color: #7F7F7F;
+		font-size: 11px;
+	}
+	#index-price {
+
+	}
 }
-#index_author {
-	color: #7F7F7F;
-	font-size: 11px;
-}
+
 .actions a {
 	color: #7f8c8d;
 }

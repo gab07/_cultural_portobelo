@@ -17,14 +17,14 @@ BookComponent.prototype.template = function(book){
   } 
   var title = truncateTitle(title);
 
-	var bookTemplate = "<div class='box panel panel-default masonry-brick'>"
-      bookTemplate += "<a href=" + books + book.id + ">"
+  var bookTemplate = "<a href=" + books + book.id + ">"
+      bookTemplate += "<div class='box panel panel-default masonry-brick'>"
       bookTemplate += "<img class='product-img' src="+ book.image_url + ">"
       bookTemplate += "<div class='panel-body'>"
       bookTemplate += "<p id='index_title'>"+ title + "</p>"
       bookTemplate += "<p id='index_author'>" + book.author + "</p>"
       bookTemplate += "<p id='index_price'>$"+ parseInt(book.price) + "</p>"
-    bookTemplate += "</div></a></div>"
+    bookTemplate += "</div></div></a>"
 	return bookTemplate
 }
 BookComponent.prototype.render = function(){
