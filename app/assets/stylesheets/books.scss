@@ -2,11 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.all-books {
-	a:hover {
-		color: black;
-	}
-}
 #books {
 	margin: 0 auto;
 }
@@ -19,8 +14,8 @@
 }
 .box {
 	margin: 5px;
-	width: 205px;
-	height: 400px;
+	width: 185px;
+	height: 407px;
 	img {
 		width: 100%;
 		overflow: inherit;
@@ -69,8 +64,10 @@ p.categorias_sidemenu {
 		list-style-type: none;
 	}
 }
-.category_list {
+ul.category_list {
+	
 	li {
 		list-style-type: none;
+		// display: inline-block;
 	}
 }

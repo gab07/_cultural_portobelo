@@ -1,37 +1,41 @@
-<%= form_for(@contact_form) do |f| %>
-  <% if @contact_form.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@contact_form.errors.count, "error") %> prohibited this contact_form from being saved:</h2>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <%= form_for(@contact_form) do |f| %>
+        
+        <% if @contact_form.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@contact_form.errors.count, "error") %> prohibited this contact_form from being saved:</h2>
 
-      <ul>
-      <% @contact_form.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+            <ul>
+            <% @contact_form.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-  <div class="field">
-    <%= f.label :Nómbre %><br>
-    <%= f.text_field :name %>
+        <div class="form-group">
+          <%= f.label :Nómbre %><br>
+          <%= f.text_field :name, :class => "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email %><br>
+          <%= f.text_field :email, :class => "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :Celular_o_Teléfono %><br>
+          <%= f.number_field :phone, :class => "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :Profesión %><br>
+          <%= f.select(:profession, options_for_select([['Estudiante', 'Estudiante'], ['Profesor', 'Profesor'], ['Abogado', 'Abogado'], ['Otro', 'Otro']]), :class =>" form-control btn btn-primary dropdown-toggle") %>
+        </div>
+        <div class="form-group">
+          <%= f.label :Comentarios %><br>
+          <%= f.text_area :comment, :class => "form-control" %>
+        </div>
+        <button type="submit" class="btn btn-default">
+              Enviar</button>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :Celular_o_Teléfono %><br>
-    <%= f.number_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :Profesión %><br>
-    <%= f.select(:profession, options_for_select([['Estudiante', 'Estudiante'], ['Profesor', 'Profesor'], ['Abogado', 'Abogado'], ['Otro', 'Otro']]), :class =>"btn btn-primary dropdown-toggle") %>
-  </div>
-  <div class="field">
-    <%= f.label :Comentarios %><br>
-    <%= f.text_area :comment %>
-  </div>
-  <div class="actions">
-    <%= f.submit :value => "Enviar" %>
-  </div>
-<% end %>
+</div>

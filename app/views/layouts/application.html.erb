@@ -8,9 +8,7 @@
 </head>
 <body>
 	<div class="container ">
-		<div class="row">
 			<%= render 'layouts/header'%>
-			<%= render 'books/books_filters' %>
 				<div class="row flash-alerts">
 						<% if flash[:alert] %>
 					<div class="alert alert-info" role="alert">
@@ -23,7 +21,7 @@
 					</div>
 					 	<% end %>
 				</div>
-		</div>
+		
 		<%= yield %>
 		
 	</div>

@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = Book.recent.paginate(:page => params[:page], :per_page => 15)
+    @books = Book.recent.paginate(:page => params[:page], :per_page => 16)
   end
 
   def show
@@ -14,6 +14,7 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @categories = @book.categories
   end
 
   def create
@@ -31,11 +32,12 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book = Book.find(params[:id])
     if @book.update(book_params)
+      binding.pry
       @category_id = params[:category]
-      @category_id = @category_id.first.to_i
-      BookCategoryRelation.create(category_id: @category_id, book_id: @book.id)
+      unless @category_id.nil?
+        BookCategoryRelation.create(category_id: @category_id, book_id: @book.id)
+      end
       redirect_to @book, notice: 'Book was successfully updated.' 
     else
       render :edit 
@@ -50,9 +52,12 @@ class BooksController < ApplicationController
   private
     def set_book
       @book = Book.find(params[:id])
+      @categories = @book.categories 
+      @categories = {'category_ids' => []}.merge(params[:book] || {})
     end
 
     def book_params
-      params.require(:book).permit(:title, :author, :price, :publisher, :publication_year, :cover, :country_of_origin)
+      params.require(:book).permit(:title, :author, :price, :publisher, :publication_year, :cover, :country_of_origin, category_ids: [])
     end
+
 end

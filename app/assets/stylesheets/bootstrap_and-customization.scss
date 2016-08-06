@@ -3,7 +3,7 @@
 @import 'bootstrap';
 @import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
 
-$body-bg: #E4F1FE;
+// $body-bg: blue;
 // $font-family-sans-serif: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 // $btn-default-bg: white;
 // // $navbar-default-bg: ;
@@ -11,9 +11,10 @@ $body-bg: #E4F1FE;
 // $btn-primary-border: #2ecc71;
 // $navbar-default-link-color: #7f8c8d;
 // $navbar-default-brand-color: #2ecc71; 
-$navbar-height: 100px;
+$navbar-height: 50px;
 
 @import 'bootstrap';
+
 .center {
 	padding: 7px;
 }

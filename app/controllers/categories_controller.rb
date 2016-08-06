@@ -15,6 +15,7 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
+    @all_books = Book.all
   end
 
   # GET /categories/1/edit
@@ -25,6 +26,12 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(category_params)
+
+    params[:books][:id].each do |book|
+      if !book.empty?
+        @category.bookcategoryrelatios.build(:book_id => book)
+      end
+    end
 
     respond_to do |format|
       if @category.save
