@@ -15,6 +15,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'pry'
+gem "pgbackups-archive"
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'paperclip', '~> 4.3'
