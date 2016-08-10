@@ -2,7 +2,6 @@ var BookComponent = function(collection){
 	this.collection = collection
 }
 
-
 BookComponent.prototype.template = function(book){
 	var books = "books/"
   var title = book.title;
