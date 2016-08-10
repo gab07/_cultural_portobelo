@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
-  resources :categories
   root 'books#index'
   
   namespace :api, defaults: { format: :json } do
     resources :books, only: [:index]
   end
   
+  resources :categories
   resources :books
   resources :contact_forms
   devise_for :users
-
-
 
   devise_scope :user do
     get "/admin", to: "devise/sessions#new"
@@ -18,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   
-  get 'about' => 'pages#about' #creates abocut_path
+  get 'about' => 'pages#about' #creates about_path
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
