@@ -33,7 +33,6 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
-      binding.pry
       @category_id = params[:category]
       unless @category_id.nil?
         BookCategoryRelation.create(category_id: @category_id, book_id: @book.id)

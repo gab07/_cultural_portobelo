@@ -31,8 +31,8 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="pagination">
-    <%= will_paginate @books, renderer: BootstrapPagination::Rails, class: "pagination pagination-centered" %>
+<div class="row row-centered">
+  <div class="pagination col-md-6 col-centered">
+    <%= will_paginate @books, :previous_label => 'Anterior', :next_label => 'Siguiente', renderer: BootstrapPagination::Rails, class: "pagination" %>
   </div>    
 </div>
