@@ -1,8 +1,6 @@
 <div class="row">
   <div class="col-md-6"> 
     <h1>Listado de categorias</h1>
-    <%= link_to 'Nueva Categoria', new_category_path, :class =>"btn btn-default" %>
-
     <table class="table category-table">
       <thead>
         <tr>
@@ -15,7 +13,6 @@
         <% @categories.each do |category| %>
           <tr>
             <td><%= category.name %></td>
-            <td><%= link_to 'Ver', category %></td>
             <td><%= link_to 'Editar', edit_category_path(category) %></td>
             <td><%= link_to 'Eliminar', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
