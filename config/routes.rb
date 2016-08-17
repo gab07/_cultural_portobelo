@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+  
+  devise_for :users
   root 'books#index'
+  devise_scope :user do
+    get "/admin", to: "devise/sessions#new"
+    get "/logout", to: "devise/sessions#destroy", as: :signout
+  end
   
   namespace :api, defaults: { format: :json } do
     resources :books, only: [:index]
@@ -8,12 +14,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :books
   resources :contact_forms
-  devise_for :users
 
-  devise_scope :user do
-    get "/admin", to: "devise/sessions#new"
-    get "logout", to: "devise/sessions#destroy", as: :signout
-  end
 
   
   get 'about' => 'pages#about' #creates about_path
