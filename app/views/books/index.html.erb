@@ -1,16 +1,20 @@
 <div class="row root_wrapper">
-  <div class="col-md-3">
+
+  <div class="col-md-3 book-filter">
     <%= render 'books/books_filters' %>
   </div>
+
   <div class="col-md-8 all-books">
   <!--******* @books = Book.all ******-->
     <div id="books" class="transitions-enabled clearfix books">
       <% @books.each do |book| %>
       <div class="box panel panel-default">
-        <%= link_to image_tag(book.cover.url(:medium)), book %>
+        <div class="book-cover">
+            <%= link_to image_tag(book.cover.url(:medium)), book %>
+        </div>
         <div class="panel-body">
           <p id="index-title">
-            <%=h truncate(book.title, :length => 25, :omission => '...') %>
+            <%=h truncate(book.title, :length => 35, :omission => '...') %>
           </p>
           <p id="index-author"><%= book.author %> </p>
           <p id="index-price"><%= book.price %>0 </p>

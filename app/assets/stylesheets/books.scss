@@ -5,7 +5,7 @@
 #books {
 	margin: 0 auto;
 	a:hover {
-		color: black;
+		color: inherit;
 	}
 }
 .main_content {
@@ -25,13 +25,16 @@
 	}
 }
 .panel-body {
+	position: absolute;
+	bottom: 0px;
+	max-height: 140px;
 	p {
 		font-style: normal;
 	}
 	#index-title {
 		color: #7f8c8d;
 		font-weight: bold;
-		font-size: 13px;
+		font-size: 11px;
 	}
 	#index-author {
 		color: #7F7F7F;
