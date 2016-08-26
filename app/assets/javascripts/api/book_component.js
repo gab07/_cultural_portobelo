@@ -28,9 +28,9 @@ BookComponent.prototype.template = function(book){
 }
 BookComponent.prototype.render = function(){
   var component = this
-  $(".transitions-enabled").empty()
+  $(".books").empty()
   this.collection.books.forEach(function(book){
-    $(".transitions-enabled").append(component.template(book)) && $('.transitions-enabled').change().masonry('reload');
+    $(".books").append(component.template(book)) && $('.books').change().masonry('reload');
   })
    
 }

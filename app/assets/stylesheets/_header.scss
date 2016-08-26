@@ -14,7 +14,6 @@ div.collapse {
 ul.nav li a{
 	padding: 65px 49px -1px 0px;
 	font-size: 24px;
-	padding-left: 20px;
 }
 //Remove the default bootstrap margin from the main header
 nav.navbar.navbar-default {
@@ -25,8 +24,4 @@ nav.navbar.navbar-default {
 }
 
 nav.navbar-nav.navbar-left {
-   padding-left: 27px;
-}
-a.right.carousel-control {
-	right: 44px;
 }

@@ -3,7 +3,7 @@ class Api::BooksController < ApplicationController
 
   def index
     if params[:search]
-      @books = Book.search(params[:search]).all
+      @books = Book.search(params[:search]).recent
     end
     render :index
   end

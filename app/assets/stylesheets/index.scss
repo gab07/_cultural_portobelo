@@ -1,25 +1,29 @@
-.root_wrapper {
-	padding-top: 20px;
-}
-div.book-filter {
-  margin-left: 20px; 
-}
 .books {
-   margin-left:98px;
-   top:0;
-   max-width:1600px;
-   padding-bottom:100px;
-   position:absolute;
-   img {
-   	max-height: 260px;
-    vertical-align: middle;
-    padding: 5px;
-   }
+padding-top: 20px;
+max-width: 100%;
 }
-.row-centered {
-    text-align:center;
+
+.book-container {
+	height: 325px;
+	position: relative;
+	.img-container {
+		.well-image {
+			width: 73%;
+			height: 200px;
+			margin: 0 auto;
+		}
+	}
+	.book-info{
+		margin: 0 auto;
+		position: absolute;
+	}
 }
-.col-centered {
-   display:inline-block;
-    float:none;
+
+.pagination-wrapper{
+	text-align: center;
+	.col-centered {
+	  display:inline-block;
+	  float:none;
+	  margin: 0 auto;
+	}
 }

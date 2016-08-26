@@ -11,21 +11,9 @@
  * file per style scope.
  *
  *= require_self
- *= require masonry/centered
  *= require_tree .
  */
- * {
- 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
- }
- html {
- 	background-color: #5C97BF;
- }
  body {
+ 	
  }
- div.row {
-	background: #5C97BF;
 
- 	.root_wrapper {
- 	background: #5C97BF;
- }
- }
