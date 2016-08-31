@@ -6,7 +6,7 @@ $(document).ready(function () {
   function search_query() {
     var query = $('#search').val()
     router.collection.fetch(query, function () {
-      router.ProductComponent.render()
+      router.BookComponent.render()
     })
   }
   
@@ -16,15 +16,27 @@ $(document).ready(function () {
     search_query()
   })
 
+  $('#codigos').click(function(event){
+    event.preventDefault()
+    $('#search').val("codigos")
+    search_query()
+  })
+
   $('#ciencias-politicas').click(function(event){
     event.preventDefault()
-    $('#search').val("politicas")
+    $('#search').val("ciencias políticas")
     search_query()
   })
 
   $('#derecho-penal').click(function(event){
     event.preventDefault()
-    $('#search').val("penal")
+    $('#search').val("derecho penal")
+    search_query()
+  })
+
+  $('#derecho-civil').click(function(event){
+    event.preventDefault()
+    $('#search').val("derecho civil")
     search_query()
   })
 

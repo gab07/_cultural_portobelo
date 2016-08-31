@@ -34,7 +34,7 @@ BookComponent.prototype.template = function(book){
                             bookTemplate += "</div>" //book-title
 
                             bookTemplate += "<div class='row'>"
-                                bookTemplate += "<p><strong>"+ author + "</strong></p>"
+                                bookTemplate += "<p><strong>Autor: </strong>"+ author +"</p>"
                             bookTemplate += "</div>" // book-author
                         bookTemplate += "</div>"
 
