@@ -7,6 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="container">
+		
 			<%= render 'layouts/header'%>
 				<div class="row flash-alerts">
 						<% if flash[:alert] %>
@@ -23,6 +25,7 @@
 		
 		<%= yield %>
 		
+	</div>
 	<script>
 	  var router = new Router()
 	</script>

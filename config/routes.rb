@@ -1,17 +1,26 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root 'books#index'
-  devise_scope :user do
-    get "/admin", to: "devise/sessions#new"
-    get "/logout", to: "devise/sessions#destroy", as: :signout
-  end
   
   namespace :api, defaults: { format: :json } do
     resources :books, only: [:index]
   end
-  
-  resources :books
-  resources :categories
+
+  devise_for :users
+
+  devise_scope :user do
+    get "/logout", to: "devise/sessions#destroy", as: :signout
+  end
+
+  authenticate :user do
+    get '/admin' => 'books#new'
+  end
+
+  authenticated :user do
+    resources :books, only: [:new, :create, :edit, :update, :destroy]
+    resources :categories
+  end
+  resources :books, only: [:index, :show]
+  root 'books#index'#<--------root_route
+
   resources :contact_forms
   
   get 'about' => 'pages#about' #creates about_path

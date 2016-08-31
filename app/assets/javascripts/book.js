@@ -2,6 +2,13 @@ $(document).ready(function () {
   $('#search-form').on("submit",function(event){
     event.preventDefault()
   })
+
+  function search_query() {
+    var query = $('#search').val()
+    router.collection.fetch(query, function () {
+      router.ProductComponent.render()
+    })
+  }
   
   $('#all-books').click(function(event){
     event.preventDefault()

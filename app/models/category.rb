@@ -6,8 +6,4 @@ class Category < ActiveRecord::Base
 
 	validates :name, uniqueness: true
 
-	def book_category(data) 
-		@categories = Book.includes(:categories).where("category.name = '#{data}'").references(:categories)
-	end
-
 end
