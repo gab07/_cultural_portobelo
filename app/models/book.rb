@@ -21,4 +21,8 @@ class Book < ActiveRecord::Base
 	def self.recent
 		all.order("id DESC")
 	end
+
+	def self.random
+		all.sample(5)
+	end
 end
