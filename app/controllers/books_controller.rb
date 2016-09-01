@@ -7,6 +7,8 @@ class BooksController < ApplicationController
 
   def show
     @books = Book.random
+    @book = Book.find(params[:id])
+    @categories = @book.categories.map { |t| t.name }.join(", ")
   end
 
   def new

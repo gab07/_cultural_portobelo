@@ -38,6 +38,21 @@ BookComponent.prototype.template = function(book){
                             bookTemplate += "</div>" // book-author
                         bookTemplate += "</div>"
 
+                        // bookTemplate += "<div class='row'>"
+                        //     bookTemplate += "<% if current_user %>"
+                        //         bookTemplate += "<%= link_to edit_book_path(book) do %>
+                        //         <span class='glyphicon glyphicon-pencil'></span>"
+                        //         bookTemplate += "<% end %> "
+                        //         bookTemplate += "Editar"
+
+                        //         bookTemplate += "<%= link_to book, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                        //         <span class='glyphicon glyphicon-trash'></span>"
+                        //         bookTemplate += "<% end %>" 
+                        //         bookTemplate += "Eliminar" 
+                                            
+                        //     bookTemplate += "<% end %>"
+                        // bookTemplate += "</div>" // Editar|Eliminar
+
                     bookTemplate += "</div>"
                 bookTemplate += "</div>"
             bookTemplate += "</div>"

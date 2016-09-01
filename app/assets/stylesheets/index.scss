@@ -13,10 +13,6 @@ max-width: 100%;
 			margin: 0 auto;
 		}
 	}
-	.book-info{
-		margin: 0 auto;
-		position: absolute;
-	}
 }
 
 .pagination-wrapper{
@@ -25,5 +21,27 @@ max-width: 100%;
 	  display:inline-block;
 	  float:none;
 	  margin: 0 auto;
+	}
+}
+.active a{
+    background-color: #093947 !important;
+} 					// Change the bootstrap active class color! #EB341F 
+div.panel.product-filter-container {
+    a:hover {
+    	background-color: #F06D5F !important;
+    } 
+} 					// Book Filter a:hover background color
+	ul li a:hover {
+	color:#FFFFF8 !important;
+	font-size: 12px;
+}			// Book filter font color :hover
+div.panel.product-filter-container{
+	background-color: #faffff !important;
+}
+
+div.helper-background-hover {
+	div:hover {
+		background-color: #4D4338;
+		opacity: 0.9;
 	}
 }

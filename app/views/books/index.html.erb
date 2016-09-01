@@ -2,18 +2,17 @@
     <div class="col-md-3 book-filter">
         <%= render 'books/books_filters' %>
     </div>
-    <div class="col-md-9 books-wrapper">
+
+    <div class="col-md-9 books-wrapper text-center">
         <% @books.each do |book| %>
-            <div class="col-xs-3">
+            <div class="col-xs-3 helper-background-hover">
 
                 <div class="well sm-well book-container">
                     <div class="row">
 
-                        <div class="row">
                             <div class="col-md-12 img-container">
                                 <%= link_to image_tag(book.cover.url(:medium), class: "img img-responsive img-rounded well-image"), book %>
                             </div>
-                        </div><!-- Portada -->
 
                         <div class="col-xs-12 book-info">
 
@@ -27,19 +26,17 @@
 
                             <div class="row">
                                 <% if current_user %>
-                                    <button class="btn btn-primary pull-right">
                                         <%= link_to edit_book_path(book) do %>
                                         <span class="glyphicon glyphicon-pencil"></span>
                                         <% end %> 
-                                    Editar</button>
+                                    Editar
 
-                                    <button class="btn btn-warning pull-right">
                                         <%= link_to book, method: :delete, data: { confirm: 'Are you sure?' } do %>
                                         <span class="glyphicon glyphicon-trash"></span>
                                         <% end %> 
-                                    Eliminar</button>
-                                <% end %><!-- Editar|Eliminar -->
-                            </div>
+                                    Eliminar
+                                <% end %>
+                            </div><!-- Editar|Eliminar -->
 
                         </div><!-- Titutlo|Autor -->
                     </div>
@@ -50,9 +47,10 @@
 
         <div class="row pagination-wrapper">
             <div class="pagination col-xs-12 col-centered">
-              <%= will_paginate @books, :previous_label => 'Anterior', :next_label => 'Siguiente', renderer: BootstrapPagination::Rails, class: "pagination" %>
+              <%= will_paginate @books, :previous_label => 'Anterior', :next_label => 'Siguiente', renderer: BootstrapPagination::Rails, class: "pagination", :style => 'color:#0F6B79' %>
             </div>
         </div>
 
     </div>
+
 </div>

@@ -1,39 +1,45 @@
 <div class="row show-wrapper">
 
-	<div class="col-md-offset-1 col-md-2">
+	<div class="col-md-3 text-center">
 		<%= render 'books/books_random' %>
 	</div>
 	
-	<div class="col-md-offset-1 col-md-8 show-bookinfo">
-		
-		<div class="book-cover">
-			<%= image_tag @book.cover.url(:medium) %>
+	<div class="col-md-9 show-bookinfo well md-well">
+
+		<div class="row">	
+			<div class="col-xs-3 book-cover text-center">
+				<%= image_tag @book.cover.url(:medium) %>
+			</div><!-- BookImg -->
+
+			<div class="col-xs-9">
+				<ul class="book-info">
+					<li>
+						<h3><%= @book.title %></h3>
+						
+						<p>Precio:<%= @book.price %>0</p>
+						<p>Autor: <%= @book.author %></p>
+						<p>Año: <%= @book.publication_year %></p>
+						<p>Editorial: <%= @book.publisher %></p>
+						<p>Categoria: <%= @categories %></p><br>	
+				</ul>
+			</div><!-- BookInfo -->
 		</div>
 		
-			<ul class="book-info">
-				<li>
-					<h3><%= @book.title %></h3>
-					
-					<p>Autor: <%= @book.author %></p>
-					<p>Año: <%= @book.publication_year %></p>
-					<p>Editorial: <%= @book.publisher %></p>
-				
-					<p class="book-category">Categoria:</p>
-						<% @book.categories.each do |category| %>
-							<p class="book-category"><%= category.name %></p>
-						<% end %> <br>
-					<p>Precio:<%= @book.price %>0</p>
-					<span class="book-description">
-						<h4>Resumen</h4>
-						<p><%= @book.description %></p>
-					</span>
-				
-					
-			</ul>
+
+			<div class="row">
+
+				<div class="col-md-12 book-description">
+					<h4>Resumen</h4>
+					<p class="description"><%= @book.description %></p>
+				</div>	
+
+			</div>
+
 			<% if current_user  %>
 				<%= link_to edit_book_path(@book)  do %>
 				  <span class="glyphicon glyphicon-pencil"></span> Edit
 				<% end %>
 			<% end %>
+
 		</div>
 </div>
