@@ -20,7 +20,6 @@ BookComponent.prototype.template = function(book){
     var bookTemplate = "<a href=" + books + book.id + ">"
             bookTemplate += "<div class='col-xs-3'>"
                 bookTemplate += "<div class='well sm-well book-container'>"
-                    bookTemplate += "<div class='row'>"
 
                         bookTemplate += "<div class='row'>"
                             bookTemplate += "<div class='col-md-12 img-container'>"
@@ -53,7 +52,6 @@ BookComponent.prototype.template = function(book){
                         //     bookTemplate += "<% end %>"
                         // bookTemplate += "</div>" // Editar|Eliminar
 
-                    bookTemplate += "</div>"
                 bookTemplate += "</div>"
             bookTemplate += "</div>"
         bookTemplate += "</a>"
