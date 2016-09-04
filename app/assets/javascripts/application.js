@@ -23,7 +23,7 @@ $(document).ready(function () {
   $('.scrollup').click(function () {
     $("html, body").animate({
       scrollTop: 0
-    }, 900)
+    }, 200)
     return false
   })
   })
