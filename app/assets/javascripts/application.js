@@ -16,3 +16,14 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+
+
+$(document).ready(function () {
+  $('.scrollup').click(function () {
+    $("html, body").animate({
+      scrollTop: 0
+    }, 900)
+    return false
+  })
+  })

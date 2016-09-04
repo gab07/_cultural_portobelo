@@ -18,17 +18,18 @@
         <li><%= link_to 'Inicio', root_path %></li>
         <li><%= link_to 'Editorial', about_path %></li>
         <li><%= link_to 'Contáctenos', new_contact_form_path %></li>
+        <li><%= link_to 'Novedades', root_path %></li>
       </ul>
 
-      <form class="navbar-form navbar-left">
-        <% if current_page?(root_path) %>
+      
+
+      <ul class="nav navbar-nav navbar-right">
+        <form class="navbar-form navbar-left">
+       
           <%= form_tag(root_path, :method => "get", id: "search-form", role: "search") do %>
           <%= text_field_tag :search, params[:search], class:"form-control search-query", placeholder: "Buscador..." %>
         <% end %>
-        <% end %>
       </form>
-
-      <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
               <li class="header_new_link"><%= link_to new_book_path do %>
                   <span class="glyphicon glyphicon-plus"></span> Producto
