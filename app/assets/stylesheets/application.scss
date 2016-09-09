@@ -12,14 +12,16 @@
  *
  *= require_self
  *= require_tree .
+ *= require font-awesome
  */
+ 
  * {
- 		font-family: futura !important;
 	 	a:hover {
 	 		color: black;
 	 	}
  }
  body {
+ 		font-family: futura !important;
  		background-color: #FFFFF8 !important;
  }
 

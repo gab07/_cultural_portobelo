@@ -1,14 +1,12 @@
 footer {
 	background: #243c4f;
-	clear: both;
 	padding: 25px 0; }
-	
+.footer-wrapper {
+	max-width: 1295px;
+}
 footer p {
 	font-size: 14px;
 	color: rgba(255, 255, 255, 0.6); }
-
-footer a {
-color: #EB341F; }
 
 footer a:hover {
 color: #3ac341; }
@@ -108,4 +106,7 @@ footer .copyright {
 padding-top: 40px; }
 #anv {
 	color: #b3362c; 
+}
+.helper-class {
+	padding-left: 20px !important;
 }
