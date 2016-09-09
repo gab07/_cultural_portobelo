@@ -2,7 +2,9 @@
 padding-top: 20px;
 max-width: 100%;
 }
-
+div.books-wrapper.text-center {
+	padding-top: 10px;
+}
 .book-container {
 	height: 325px;
 	position: relative;
@@ -15,6 +17,10 @@ max-width: 100%;
 	}
 }
 
+div.book-container {
+	background-color: #F9FFFF;
+}
+
 .pagination-wrapper{
 	text-align: center;
 	.col-centered {
@@ -23,9 +29,11 @@ max-width: 100%;
 	  margin: 0 auto;
 	}
 }
+
 .active a{
     background-color: #093947 !important;
 } 					// Change the bootstrap active class color! #EB341F 
+
 div.panel.product-filter-container {
     a:hover {
     	background-color: #F06D5F !important;
@@ -35,6 +43,7 @@ div.panel.product-filter-container {
 	color:#FFFFF8 !important;
 	font-size: 12px;
 }			// Book filter font color :hover
+
 div.panel.product-filter-container{
 	background-color: #faffff !important;
 }

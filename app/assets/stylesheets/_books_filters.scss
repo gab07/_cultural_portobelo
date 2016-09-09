@@ -1,4 +1,3 @@
-
 div.collapse ul li a {
 	font-size: 15px;
 }
@@ -11,14 +10,19 @@ ol {
 div.book-filter {
 	padding-bottom: 10px;
 	margin-top: 10px;
+	display: flex;
+	align-items: center;
 }
+
 div#filter-list-size.panel.product-filter-container {
 	position:relative;
 	display: inline-block;
-
+	height: 680px;
+	border: 1px solid #e3e3e3;
 } // Parent -> container
+
 ul.nav.nav-pills.nav-stacked {
-	
 	width: 100%;
 	height: 100%;
 } // Child -> ul
+
