@@ -60,8 +60,24 @@ BookComponent.prototype.template = function(book){
 
 BookComponent.prototype.render = function(){
   var component = this
+  var book_ids = [];
+
   $(".books-wrapper").empty()
+
   this.collection.books.forEach(function(book){
-    $(".books-wrapper").append(component.template(book));
+    console.log(book)
+    book_id = book.id
+    book_ids.push(book.id);
+    if (book.id == book_ids.find(book_id)) {
+        return;
+    }else{
+        $(".books-wrapper").append(component.template(book));
+    }
   })
 }
+
+
+
+
+
+
