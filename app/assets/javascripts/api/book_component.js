@@ -63,16 +63,8 @@ BookComponent.prototype.render = function(){
   var book_ids = [];
 
   $(".books-wrapper").empty()
-
   this.collection.books.forEach(function(book){
-    console.log(book)
-    book_id = book.id
-    book_ids.push(book.id);
-    if (book.id == book_ids.find(book_id)) {
-        return;
-    }else{
         $(".books-wrapper").append(component.template(book));
-    }
   })
 }
 
