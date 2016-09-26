@@ -2,7 +2,12 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = Book.recent.paginate(:page => params[:page], :per_page => 8)
+    if params[:search]
+      @books = Book.search(params[:search]).paginate(:page => params[:page], :per_page => 8)
+    else
+      @books = Book.recent.paginate(:page => params[:page], :per_page => 8)
+    end
+
   end
 
   def show

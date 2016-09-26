@@ -15,8 +15,28 @@ class Book < ActiveRecord::Base
 	validates :cover, presence: true
 
 
-	scope :search, -> query { joins(:categories).where("lower(title) LIKE ? OR lower(author) LIKE ? OR lower(publisher) LIKE ? OR lower(publication_year) LIKE ? OR lower(country_of_origin) LIKE ? OR lower(description) LIKE ? OR lower (categories.name) LIKE ?",
-      "%#{query}%".downcase, "%#{query}%".downcase, "%#{query}%".downcase, "%#{query}%".downcase, "%#{query}%".downcase, "%#{query}%".downcase, "%#{query}%".downcase) }
+	# scope :search, -> query { joins(:categories).where("lower(title) LIKE ? OR lower(author) LIKE ? OR lower(publisher) LIKE ? OR lower(publication_year) LIKE ? OR lower(country_of_origin) LIKE ? OR lower(description) LIKE ? OR lower (categories.name) LIKE ?",
+ #      "%#{query}%".downcase, "%#{query}%".downcase, "%#{query}%".downcase, "%#{query}%".downcase, "%#{query}%".downcase, "%#{query}%".downcase, "%#{query}%".downcase) }
+
+
+	def self.search(search)
+		if search
+			search_array = self.joins(:categories).where('lower(title) LIKE ? OR
+																		 lower(author) LIKE ? OR
+																		 lower(country_of_origin) LIKE ? OR
+																		 lower(publisher) LIKE ? OR
+																		 lower(categories.name) LIKE ?',
+																	  "%#{search}%".downcase,
+																	  "%#{search}%".downcase,
+																	  "%#{search}%".downcase,
+																	  "%#{search}%".downcase,
+																	  "%#{search}%".downcase)
+		else
+			search_array = self.all
+		end
+		return search_array.uniq
+	end
+
 
 	def self.recent
 		all.order("id DESC")
