@@ -12,7 +12,7 @@ class Book < ActiveRecord::Base
 	validates :author, presence: true
 	validates :publisher, presence: true
 	validates :price, presence: true
-	validates :cover, presence: true
+	# validates :cover, presence: true
 
 
 	# scope :search, -> query { joins(:categories).where("lower(title) LIKE ? OR lower(author) LIKE ? OR lower(publisher) LIKE ? OR lower(publication_year) LIKE ? OR lower(country_of_origin) LIKE ? OR lower(description) LIKE ? OR lower (categories.name) LIKE ?",

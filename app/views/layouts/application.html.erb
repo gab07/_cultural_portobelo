@@ -3,28 +3,51 @@
 <head>
   <title>CulturalPortobelo</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+	<script>
+   function initMap() {
+     var myLatLng = {lat: 8.986808, lng: -79.531414};
+
+     // Create a map object and specify the DOM element for display.
+     var map = new google.maps.Map(document.getElementById('googleMap'), {
+       center: myLatLng,
+       scrollwheel: false,
+       zoom: 17
+     });
+
+     // Create a marker and set its position.
+     var marker = new google.maps.Marker({
+       map: map,
+       position: myLatLng,
+       title: 'Cultural Portobelo'
+     });
+   }
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASwfqO4gxqJWgPXjkMyofNhVipH7dH3xo&callback=initMap"
+	       async defer></script>
 </head>
+
 <body>
-		
-			<%= render 'layouts/header'%>
-				<div class="row flash-alerts">
-						<% if flash[:alert] %>
-					<div class="alert alert-info" role="alert">
-					  	<p class="flash-error"><%= flash[:alert] %></p>
-					</div>
-					 	<% end %>
-					 	<% if flash[:notice] %>
-					<div class="alert alert-info" role="alert">
-					  	<p class="flash-notice"><%= flash[:notice] %></p>
-					</div>
-					 	<% end %>
-				</div>
-		
-		<%= yield %>
-		
-			<%= render 'layouts/footer'%>
+	<%= render 'layouts/header'%>
+		<div class="row flash-alerts">
+				<% if flash[:alert] %>
+			<div class="alert alert-info" role="alert">
+			  	<p class="flash-error"><%= flash[:alert] %></p>
+			</div>
+			 	<% end %>
+			 	<% if flash[:notice] %>
+			<div class="alert alert-info" role="alert">
+			  	<p class="flash-notice"><%= flash[:notice] %></p>
+			</div>
+			 	<% end %>
+		</div>
+
+	<%= yield %>
+
+	<%= render 'layouts/footer'%>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
 </body>
 </html>

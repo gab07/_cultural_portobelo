@@ -27,3 +27,6 @@ $(document).ready(function () {
     return false
   })
   })
+document.addEventListener("turbolinks:load", function() {
+  initMap();
+})

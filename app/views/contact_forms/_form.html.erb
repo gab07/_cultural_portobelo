@@ -1,7 +1,4 @@
-<div class="row">
-  <div class="col-md-4 col-md-offset-4">
-    <%= form_for(@contact_form) do |f| %>
-        
+    <%= form_for(@contact_form) do |f| %>        
         <% if @contact_form.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(@contact_form.errors.count, "error") %> prohibited this contact_form from being saved:</h2>
@@ -16,15 +13,15 @@
 
         <div class="form-group">
           <%= f.label :Nómbre %><br>
-          <%= f.text_field :name, :class => "form-control" %>
+          <%= f.text_field :name, :class => "form-control", placeholder: "Pedro Perez" %>
         </div>
         <div class="form-group">
           <%= f.label :email %><br>
-          <%= f.text_field :email, :class => "form-control" %>
+          <%= f.text_field :email, :class => "form-control", placeholder: "pedro@perez.com" %>
         </div>
         <div class="form-group">
           <%= f.label :Celular_o_Teléfono %><br>
-          <%= f.number_field :phone, :class => "form-control" %>
+          <%= f.number_field :phone, :class => "form-control", placeholder: "6543-2345" %>
         </div>
         <div class="form-group">
           <%= f.label :Profesión %><br>
@@ -32,10 +29,8 @@
         </div>
         <div class="form-group">
           <%= f.label :Comentarios %><br>
-          <%= f.text_area :comment, :class => "form-control" %>
+          <%= f.text_area :comment, :class => "form-control", placeholder: "Me encanta lo que hacen, sigan así ..." %>
         </div>
-        <button type="submit" class="btn btn-default">
+        <button type="submit" class="btn btn-default" style="float:right;">
               Enviar</button>
     <% end %>
-  </div>
-</div>
