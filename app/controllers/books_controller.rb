@@ -3,11 +3,10 @@ class BooksController < ApplicationController
 
   def index
     if params[:search]
-      @books = Book.search(params[:search]).paginate(:page => params[:page], :per_page => 8)
+      @books = Book.published_books.search(params[:search]).paginate(:page => params[:page], :per_page => 8)
     else
-      @books = Book.recent.paginate(:page => params[:page], :per_page => 8)
+      @books = Book.published_books.recent.paginate(:page => params[:page], :per_page => 8)
     end
-
   end
 
   def show
@@ -27,16 +26,16 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-      if @book.save
-        if params[:category]
-          params[:category].each do |cat|
-            BookCategoryRelation.create(category_id: cat, book_id: @book.id)
-          end
+    if @book.save
+      if params[:category]
+        params[:category].each do |cat|
+          BookCategoryRelation.create(category_id: cat, book_id: @book.id)
         end
-        redirect_to @book, notice: 'Book was successfully created.'
-      else
-      render :new
       end
+      redirect_to @book, notice: 'Book was successfully created.'
+    else
+      render :new
+    end
   end
 
   def update
@@ -64,7 +63,7 @@ class BooksController < ApplicationController
     end
 
     def book_params
-      params.require(:book).permit(:title, :author, :price, :publisher, :publication_year, :cover, :country_of_origin, :description, category_ids: [])
+      params.require(:book).permit(:title, :author, :price, :publisher, :publication_year, :cover, :country_of_origin, :description, :published, category_ids: [])
     end
 
 end

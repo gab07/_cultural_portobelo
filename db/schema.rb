@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830183219) do
+ActiveRecord::Schema.define(version: 20161004155841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,14 +29,15 @@ ActiveRecord::Schema.define(version: 20160830183219) do
     t.string   "publisher"
     t.string   "publication_year"
     t.decimal  "price",              precision: 5, scale: 2
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
     t.string   "cover_file_name"
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
     t.string   "country_of_origin"
     t.text     "description"
+    t.boolean  "published",                                  default: true
   end
 
   create_table "categories", force: :cascade do |t|
