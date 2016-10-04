@@ -19,6 +19,3 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 30.day do
-	rake 'my:remove_old_searches'
-end
