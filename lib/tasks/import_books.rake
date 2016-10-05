@@ -5,7 +5,7 @@ namespace :import_books_csv do
   task :create_books => :environment do
   	# Se define el nombre del excel con la info
   	# de los libros que vamos a crear.
-  	csv_text = File.read('books_db.csv')
+  	csv_text = File.read('/Users/fahenao/Desktop/books_db.csv')
   	csv = CSV.parse(csv_text, :headers => true)
   	csv.each do |row|
 
@@ -14,7 +14,7 @@ namespace :import_books_csv do
                     :publisher => row['publisher'], 
                     :publication_year => row['publication_year'],
                     :price => row['price'], 
-                    :cover => row['cover'], 
+                    :cover => File.new("/Users/fahenao/cultural_portobelo/app/assets/images/#{row['cover']}.jpg"), 
                     :country_of_origin => row['country_of_origin'], 
                     :description => row['description'],
                   }
