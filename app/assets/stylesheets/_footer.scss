@@ -1,8 +1,10 @@
 footer {
 	background: #243c4f;
 	padding: 25px 0; }
-.footer-wrapper {
-	max-width: auto !important;
+.row.footer-wrapper {
+	max-width: 100% !important;
+	margin-right: 0px;
+	margin-left: 0px;
 }
 footer p {
 	font-size: 14px;

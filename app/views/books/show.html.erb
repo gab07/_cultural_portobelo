@@ -1,12 +1,12 @@
 <div class="row show-wrapper">
 
-	<div class="col-md-9 show-bookinfo well md-well books-wrapper">
-
+	<div class="col-md-10 show-bookinfo well md-well books-wrapper col-centered">
+		<!-- BookImage -->
 		<div class="row">	
 			<div class="col-xs-3 book-cover text-center">
 				<%= image_tag @book.cover.url(:medium) %>
 			</div><!-- BookImg -->
-
+			<!-- BookInfo -->
 			<div class="col-xs-9">
 				<ul class="book-info">
 					<li>
@@ -16,6 +16,7 @@
 						<p>Autor: <%= @book.author %></p>
 						<p>Año: <%= @book.publication_year %></p>
 						<p>Editorial: <%= @book.publisher %></p>
+						<p>Pais: <%= @book.country_of_origin %></p>
 						<p>Categoria(s): <%= @categories %></p><br>	
 				</ul>
 			</div><!-- BookInfo -->
@@ -39,8 +40,41 @@
 
 		</div>
 
-	<div class="col-md-3 text-center">
-		<%= render 'books/books_random' %>
-	</div>
+<div class="row">
+	<div class="col-md-10 books-wrapper text-center">
+	  <% @books.each do |book| %>
+	    <div class="col-xs-3 ">
+	      <div class="well sm-well book-container">
+	        <div class="row">
+	          <div class="col-md-12 img-container">
+	              <%= link_to image_tag(book.cover.url(:medium), class: "img img-responsive img-rounded well-image"), book %>
+	          </div>
+	          <div class="col-xs-12 book-info">
+	            <div class="row">
+	              <h6><strong><%=h truncate(book.title, :length => 45, :omission => '...') %></strong></h6>
+	            </div>
+	            <div class="row">
+	              <p><strong>Autor: </strong><%= truncate(book.author, :length => 40, :omission => '...') %></p>
+	            </div>
 
+	            <div class="row">
+	              <% if current_user %>
+	                <%= link_to edit_book_path(book) do %>
+	                  <span class="glyphicon glyphicon-pencil"></span>
+	                <% end %> 
+	                Editar
+	                <%= link_to book, method: :delete, data: { confirm: 'Are you sure?' } do %>
+	                  <span class="glyphicon glyphicon-trash"></span>
+	                <% end %> 
+	                Eliminar
+	              <% end %>
+	            </div><!-- Editar|Eliminar -->
+
+	          </div><!-- Titutlo|Autor -->
+	        </div>
+	      </div>
+	    </div><!-- Books -->
+	  <% end %>
+	</div>
 </div>
+

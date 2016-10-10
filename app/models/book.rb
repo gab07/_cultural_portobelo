@@ -42,6 +42,6 @@ class Book < ActiveRecord::Base
 	end
 
 	def self.random
-		all.sample(5)
+		all.sample(16)
 	end
 end
