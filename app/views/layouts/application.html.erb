@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASwfqO4gxqJWgPXjkMyofNhVipH7dH3xo&callback=initMap" type="text/javascript"></script>
 	<script>
    function initMap() {
      var myLatLng = {lat: 8.986808, lng: -79.531414};
@@ -17,16 +17,28 @@
        zoom: 17
      });
 
+     // Create a map object on the footer.
+     var map2 = new google.maps.Map(document.getElementById('googleMap-footer'), {
+       center: myLatLng,
+       scrollwheel: false,
+       zoom: 15
+     });
+
      // Create a marker and set its position.
      var marker = new google.maps.Marker({
        map: map,
        position: myLatLng,
        title: 'Cultural Portobelo'
      });
+
+      var marker2 = new google.maps.Marker({
+       map: map2,
+       position: myLatLng,
+       title: 'Cultural Portobelo'
+     });
+    google.maps.event.addDomListener(window, 'load', initialize);
    }
 	</script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASwfqO4gxqJWgPXjkMyofNhVipH7dH3xo&callback=initMap"
-	       async defer></script>
 </head>
 
 <body>

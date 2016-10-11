@@ -75,6 +75,7 @@ footer {
 footer p {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.6);
+  text-align: justify;
 }
 
 /* line 11, /Users/fahenao/cultural_portobelo/app/assets/stylesheets/_footer.scss */
