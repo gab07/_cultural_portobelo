@@ -1,0 +1,5 @@
+$('.book-checkbox').change(function() {
+	$('.book_id').val('');
+});
+
+$('#order-items-container').prepend('<%= j render @order_item %>');

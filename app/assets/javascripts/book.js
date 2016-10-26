@@ -1,111 +1,81 @@
 $(document).ready(function () {
-  $('#search-form').on("submit",function(event){
-    event.preventDefault()
-  })
-
-  function search_query() {
-    var query = $('#search').val()
-    router.collection.fetch(query, function () {
-      router.BookComponent.render()
-    })
-  }
-  
   $('#all-books').click(function(event){
-    event.preventDefault()
-    $('#search').val("")
-    search_query()
-  })
-
+    $('#search-f').val("")
+    $('#search_form').submit()
+  });
   $('#codigos').click(function(event){
-    event.preventDefault()
-    $('#search').val("codigos")
-    search_query()
-  })
+    $('#search-f').val("codigos")
+    $('#search_form').submit()
+  });
 
   $('#derecho-ambiental').click(function(event){
-    event.preventDefault()
-    $('#search').val("derecho ambiental")
-    search_query()
+    $('#search-f').val("derecho ambiental")
+    $('#search_form').submit()
   })
 
   $('#ciencias-politicas').click(function(event){
-    event.preventDefault()
-    $('#search').val("ciencias políticas")
-    search_query()
+    $('#search-f').val("ciencias politicas")
+    $('#search_form').submit()
   })
 
-  
-
   $('#derecho-civil').click(function(event){
-    event.preventDefault()
-    $('#search').val("derecho civil")
-    search_query()
+   $('#search-f').val("derecho civil")
+   $('#search_form').submit()
   })
 
   $('#autores-nacionales').click(function(event){
-    event.preventDefault()
-    $('#search').val("autores nacionales")
-    search_query()
+    $('#search-f').val("autores nacionales")
+    $('#search_form').submit()
   })
 
   $('#derecho-maritimo').click(function(event){
-    event.preventDefault()
-    $('#search').val("derecho maritimo")
-    search_query()
+    $('#search-f').val("derecho maritimo")
+    $('#search_form').submit()
   })
 
   $('#derecho-internacional').click(function(event){
-    event.preventDefault()
-    $('#search').val("derecho internacional")
-    search_query()
+    $('#search-f').val("derecho internacional")
+    $('#search_form').submit()
   })
 
   $('#derecho-constitucional').click(function(event){
-    event.preventDefault()
-    $('#search').val("derecho constitucional")
-    search_query()
+    $('#search-f').val("derecho constitucional")
+    $('#search_form').submit()
   })
 
   $('#derecho-administrativo').click(function(event){
-    event.preventDefault()
-    $('#search').val("derecho administrativo")
-    search_query()
+    $('#search-f').val("derecho administrativo")
+    $('#search_form').submit()
   })
 
   $('#derecho-mercantil').click(function(event){
-    event.preventDefault()
-    $('#search').val("derecho mercantil")
-    search_query()
+    $('#search-f').val("derecho mercantil")
+    $('#search_form').submit()
   })
 
   $('#derecho-laboral').click(function(event){
-    event.preventDefault()
-    $('#search').val("derecho laboral")
-    search_query()
+    $('#search-f').val("derecho laboral")
+    $('#search_form').submit()
   })
 
   $('#derecho-de-familia').click(function(event){
-    event.preventDefault()
-    $('#search').val("derecho de familia")
-    search_query()
+    $('#search-f').val("derecho de familia")
+    $('#search_form').submit()
   })
 
   $('#derecho-penal').click(function(event){
-    event.preventDefault()
-    $('#search').val("derecho penal")
-    search_query()
+    $('#search-f').val("derecho penal")
+    $('#search_form').submit()
   })
 
   $('#derecho-informatico').click(function(event){
-    event.preventDefault()
-    $('#search').val("derecho informatico")
-    search_query()
+    $('#search-f').val("derecho informatico")
+    $('#search_form').submit()
   })
 
   $('#derecho-juridico').click(function(event){
-    event.preventDefault()
-    $('#search').val("derecho juridico")
-    search_query()
+    $('#search-f').val("derecho juridico")
+    $('#search_form').submit()
   })
 
 })
