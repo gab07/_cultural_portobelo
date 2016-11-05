@@ -4,7 +4,7 @@ $(document).ready(function () {
     $('#search_form').submit()
   });
   $('#codigos').click(function(event){
-    $('#search-f').val("codigos")
+    $('#search-f').val("códigos")
     $('#search_form').submit()
   });
 

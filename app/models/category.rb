@@ -4,6 +4,5 @@ class Category < ActiveRecord::Base
 
 	accepts_nested_attributes_for :book_category_relations, :books
 
-	validates :name, uniqueness: true
-
+	# validates :name, uniqueness: true
 end
