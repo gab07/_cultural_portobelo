@@ -8,11 +8,11 @@ class Book < ActiveRecord::Base
 										:styles => { :medium => '300x300', :thumb => '100x100' }
   
   validates_attachment :cover, content_type: { content_type: /\Aimage\/.*\Z/ }
-	# validates :title, presence: true, :uniqueness => { case_sensitive: false }
-	# validates :author, presence: true
-	# validates :publisher, presence: true
-	# validates :price, presence: true
-	# validates :cover, presence: true
+	validates :title, presence: true, :uniqueness => { case_sensitive: false }
+	validates :author, presence: true
+	validates :publisher, presence: true
+	validates :price, presence: true
+	validates :cover, presence: true
 	before_save :upcase_title
 	
 	def upcase_title
@@ -34,8 +34,7 @@ class Book < ActiveRecord::Base
 		else
 			search_array = self.all
 		end
-
-		return search_array.uniq
+		return search_array.uniq!
 	end
 
 	def self.published_books
