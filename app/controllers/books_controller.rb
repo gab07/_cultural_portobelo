@@ -62,7 +62,6 @@ class BooksController < ApplicationController
     def set_book
       @book = Book.find(params[:id])
       @categories = @book.categories 
-      @categories = {'category_ids' => []}.merge(params[:book] || {})
     end
 
     def book_params
