@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :books, only: [:index, :show]
   root 'books#index'#<--------root_route
 
-  resources :contact_forms
+  resources :contact_forms, only: [:new, :create]
   
   get 'about' => 'pages#about' #creates about_path
 
