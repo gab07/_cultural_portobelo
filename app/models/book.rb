@@ -1,8 +1,4 @@
 class Book < ActiveRecord::Base
-
-	enum country_of_origin: {Colombia: 0, España: 1, México: 2, Panamá: 3, Argentina: 4, Nicaragua: 5 }
-
-
 	has_many :book_category_relations
 	has_many :categories, through: :book_category_relations
 	accepts_nested_attributes_for :book_category_relations
@@ -27,7 +23,9 @@ class Book < ActiveRecord::Base
 			search_array = self.joins(:categories).where('lower(title) LIKE ? OR
 																		 lower(author) LIKE ? OR
 																		 lower(publisher) LIKE ? OR
+																		 lower(country_of_origin) LIKE ? OR
 																		 lower(categories.name) LIKE ?',
+																	  "%#{search}%".downcase,
 																	  "%#{search}%".downcase,
 																	  "%#{search}%".downcase,
 																	  "%#{search}%".downcase,

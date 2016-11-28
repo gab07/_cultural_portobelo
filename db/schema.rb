@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108135511) do
+ActiveRecord::Schema.define(version: 20161127235339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20161108135511) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
-    t.integer  "country_of_origin"
+    t.string   "country_of_origin"
     t.text     "description"
     t.boolean  "published",                                  default: true
   end
