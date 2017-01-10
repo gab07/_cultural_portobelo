@@ -1,3 +1,139 @@
-strong, p {
-	color: black;
+@import 'colors.scss';
+.navbar-collapse {
+  text-align:center;
+}
+
+.product-filter-container{
+  background-color: #fff;
+  .filter {
+    display:inline-block;
+    float:none;
+  }
+}
+
+.filter>li>a{
+  color: $crush-blue;
+  &:hover{
+    background: $crush-blue;
+    color: $light-gray; 
+  }
+}
+
+.product-spacer{
+  padding-top: 10em;
+  background: #fff;
+}
+
+.main-panel-products-spacer{
+  background: #fff;
+}
+
+.product-img{
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  position: relative;
+}
+
+.btn.add-to-cart{
+  border-radius: 0;
+  color: white;
+  background-color: $crush-blue;
+  border: 0.5em solid $crush-blue;
+  margin-top: 30%;
+  &:hover{
+    background-color: $light-gray;
+    color: $crush-blue;
+    font-weight: bold;
+  }
+}
+
+.site-product{
+  height: 31em;
+  width: 26em;
+  border: 0.5em solid $light-gray ;
+  position: relative;
+}
+
+.size{
+  font-size: 1.5em;
+}
+
+.show-delivery{
+  font-size: 1em;
+  color: $silver;
+  text-align: center;
+}
+
+.product-details-index{
+  position: absolute;
+  z-index: 3;
+  height: 5em;
+  width: 100%;
+  background-color: $light-gray;
+  top:84%;
+  >p{
+    text-align: center;
+    color: $crush-blue;
+  };
+  >p#price-index{
+    font-weight: bold;
+    margin-top: -3%;
+  };
+  >p#title-index{
+    margin-top: 1%;
+  };
+  >p.discount{
+    text-decoration: line-through;
+  }
+}
+
+.soldout-banner {
+  width: 0; 
+  height: 0; 
+  border-left: 60px solid transparent;
+  border-right: 0px solid transparent;
+  border-top: 60px solid $crush-blue;
+  opacity: 0.6;
+}
+
+
+#soldout{
+  top: 0.5em;
+  right: -0.6em;
+  text-align: center;
+  margin-top: 0.5em;
+  -webkit-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.soldout-banner, .sale-banner{
+  position: absolute;
+  z-index: 5;
+  right: 0;
+}
+
+#soldout, #sale{
+  color:white;
+  position: absolute;
+  z-index: 6;
+  font-weight: bold;
+}
+
+.sale-banner {
+  width: 4em; 
+  height: 4em;
+  border-radius: 50%;
+  background-color: $crush-blue;
+  opacity: 0.6;
+}
+
+#sale{
+  right: 17%;
+  margin-top: 1.4em;
 }
