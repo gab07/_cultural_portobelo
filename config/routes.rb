@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  root 'sites#index'
+  
   namespace :api, defaults: { format: :json } do
     resources :books, only: [:index]
   end
@@ -19,7 +21,6 @@ Rails.application.routes.draw do
     resources :categories
   end
   resources :books, only: [:index, :show]
-  root 'books#index'#<--------root_route
 
   resources :contact_forms, only: [:new, :create]
   

@@ -12,11 +12,13 @@
           </ul>
         </div>
       <% end %>
-
-      <div class="form_group">
-        <%= f.label :Nombre %><br>
-        <%= f.text_field :name, :class => "form-control", :autofocus => true %>
-      </div> 
+      
+      <div class="col-md-6 col-xs-12">
+        <div class="form_group">
+          <%= f.label :Nombre %><br>
+          <%= f.text_field :name, :class => "form-control", :autofocus => true %>
+        </div> 
+      </div>
       <br>
       <button type="submit" class="btn btn-default">Crear Categoría</button>
     <% end %>
