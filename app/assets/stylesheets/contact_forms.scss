@@ -1,8 +1,12 @@
 // Place all the styles related to the contact_forms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-div.row.contact-container {
-	    padding: 39px 32px 17px 32px;
+div.contact-container {
+	padding-top: 39px;
+	padding-left: 20px;
+	padding-right: 10px;
+	padding-bottom:39px;
+	max-width: 100%;
 }
 .contact-message {
 	font-size: 14px;

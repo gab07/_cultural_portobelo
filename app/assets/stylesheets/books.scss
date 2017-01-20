@@ -2,6 +2,10 @@
 .navbar-collapse {
   text-align:center;
 }
+.row.books {
+  position: relative;
+  clear:both;
+}
 
 .product-filter-container{
   background-color: #fff;
@@ -12,15 +16,16 @@
 }
 
 .filter>li>a{
-  color: $crush-blue;
+  color: $cp-prussian;
+  font-size: 10px;
   &:hover{
-    background: $crush-blue;
+    background: $cp-prussian;
     color: $light-gray; 
   }
 }
 
 .product-spacer{
-  padding-top: 10em;
+  padding-top: 5em;
   background: #fff;
 }
 
@@ -39,19 +44,19 @@
 .btn.add-to-cart{
   border-radius: 0;
   color: white;
-  background-color: $crush-blue;
-  border: 0.5em solid $crush-blue;
+  background-color: $cp-prussian;
+  border: 0.5em solid $cp-prussian;
   margin-top: 30%;
   &:hover{
     background-color: $light-gray;
-    color: $crush-blue;
+    color: $cp-prussian;
     font-weight: bold;
   }
 }
 
 .site-product{
   height: 31em;
-  width: 26em;
+  width: 20em;
   border: 0.5em solid $light-gray ;
   position: relative;
 }
@@ -69,23 +74,26 @@
 .product-details-index{
   position: absolute;
   z-index: 3;
-  height: 5em;
+  height: 16%;
   width: 100%;
-  background-color: $light-gray;
+  background-color: $cp-prussian;
   top:84%;
   >p{
     text-align: center;
-    color: $crush-blue;
+    color: $cp-prussian;
   };
   >p#price-index{
     font-weight: bold;
     margin-top: -3%;
+    color: white;
   };
   >p#title-index{
-    margin-top: 1%;
+    color: white;
+    margin-top: 3%;
   };
   >p.discount{
     text-decoration: line-through;
+    color: #F3F212;
   }
 }
 
@@ -94,7 +102,7 @@
   height: 0; 
   border-left: 60px solid transparent;
   border-right: 0px solid transparent;
-  border-top: 60px solid $crush-blue;
+  border-top: 60px solid $cp-prussian;
   opacity: 0.6;
 }
 
@@ -129,7 +137,7 @@
   width: 4em; 
   height: 4em;
   border-radius: 50%;
-  background-color: $crush-blue;
+  background-color: $cp-prussian;
   opacity: 0.6;
 }
 

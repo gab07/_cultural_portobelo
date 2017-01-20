@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CulturalPortobelo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cultural Portobelo | Textos legales Panamá</title>
+  <link rel="shortcut icon" href="/assets/sites/icon_header.jpg">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
-	<script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="webtitle" content="Cultural Portobelo | Textos legales Panamá">
+  <meta name="keywords" content="maestria en derecho penal, curso de derecho penal, especializacion en derecho penal, codigo de trabajo, codigo de la familia, codigo judicial, constitucion politica de panama, codigo civil, codigo penal, codigo fiscal, codigo de comercio, panamanian law books">
+  <meta name="author" content="Acnover">
+  <meta name="description" content:"Textos legales, constitucion, editorial y libreria juridica en Panamá">
+  <meta name="webdescription" content="Libros y algo más">
+  <%= javascript_include_tag 'application'%>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASwfqO4gxqJWgPXjkMyofNhVipH7dH3xo&callback=initMap"
+	       async defer></script>
+  <script>
    function initMap() {
      var myLatLng = {lat: 8.986808, lng: -79.531414};
 
@@ -25,14 +33,12 @@
        title: 'Cultural Portobelo'
      });
    }
-	</script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASwfqO4gxqJWgPXjkMyofNhVipH7dH3xo&callback=initMap"
-	       async defer></script>
+  </script>
 </head>
 
 <body>
-	<%= render 'layouts/header'%>
-		<div class="row flash-alerts">
+    <%= render partial: 'sites/navbar' %>
+		<div class="flash-alerts">
 				<% if flash[:alert] %>
 			<div class="alert alert-info" role="alert">
 			  	<p class="flash-error"><%= flash[:alert] %></p>
@@ -49,7 +55,7 @@
 
 
 
-	<%= render 'layouts/footer'%>
+	<%= render partial: 'layouts/footer'%>
 
   <script>
     listener();
