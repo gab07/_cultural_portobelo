@@ -40,6 +40,10 @@ class Book < ActiveRecord::Base
 		all.where(published: true)
 	end
 
+	def self.first_page
+		all.where(first_page: true)
+	end
+
 	def self.recent
 		all.order("id DESC")
 	end
