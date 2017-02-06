@@ -118,6 +118,10 @@
   .navbar-collapse.collapse {
       display: none !important;
   }
+  a.search-field {
+    padding-top: 0em !important;
+    padding-bottom: 0em !important;
+  }
   .navbar-collapse.collapse.in {
       display: block !important;
   }

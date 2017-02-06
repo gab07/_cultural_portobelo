@@ -14,12 +14,13 @@
   background-color: #fff;
   .filter {
     display:inline-block;
-    float:right;
+    text-align: center;
   }
 }
 
 .filter>li>a{
   color: $cp-prussian;
+  font-weight: 600;
   font-size: 10px;
   &:hover{
     background: $cp-prussian;
