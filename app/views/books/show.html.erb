@@ -9,7 +9,7 @@
     <div class="col-sm-5 col-sm-offset-1">
       <div class="row">
         <% if current_user && current_user  %>
-          <p class="pull-right"><%= link_to t("edit_product"), edit_product_path(@book.id)  %><p>
+          <p class="pull-right"><%= link_to t("edit_book"), edit_book_path(@book.id)  %><p>
         <% end %>
         <br>
         <h3 class="product-title"><strong><%= @book.title %></strong>
