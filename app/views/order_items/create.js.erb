@@ -1,5 +1,5 @@
-$('.book-checkbox').change(function() {
-	$('.book_id').val('');
-});
-
-$('#order-items-container').prepend('<%= j render @order_item %>');
+<% if @order.errors.any? || @order_item.errors.any? %>
+alert("not valid.")
+<% else %>
+  $(".cart-text").html("<%= escape_javascript(render 'quotations/quotation_text') %>")
+<% end %>

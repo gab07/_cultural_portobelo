@@ -1,12 +1,16 @@
 class Book < ActiveRecord::Base
 	has_many :book_category_relations
 	has_many :categories, through: :book_category_relations
+	has_many :order_items
+
 	accepts_nested_attributes_for :book_category_relations
 
+	#Paperclip gem validations
 	has_attached_file :cover,
 										:styles => { :medium => '300x300', :thumb => '100x100' }
   
   validates_attachment :cover, content_type: { content_type: /\Aimage\/.*\Z/ }
+
 	validates :title, presence: true, :uniqueness => { case_sensitive: false }
 	validates :author, presence: true
 	validates :publisher, presence: true
@@ -18,6 +22,7 @@ class Book < ActiveRecord::Base
 		title.upcase!
 	end
 
+	# Search functionality query
 	def self.search(search)
 		if search
 			search_array = self.joins(:categories).where('lower(title) LIKE ? OR
