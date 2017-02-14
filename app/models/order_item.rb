@@ -11,6 +11,8 @@ class OrderItem < ActiveRecord::Base
   def unit_price
     if persisted?
       self[:unit_price]
+    else
+      book.price
     end
   end
 

@@ -1,28 +1,29 @@
 Rails.application.routes.draw do
   
   root 'sites#index'
-  
-  namespace :api, defaults: { format: :json } do
-    resources :books, only: [:index]
-  end
-
+  #routes for Devise gem
   devise_for :users
-
   devise_scope :user do
     get "/logout", to: "devise/sessions#destroy", as: :signout
   end
 
   authenticate :user do
-    get '/admin' => 'books#new'
   end
 
   authenticated :user do
     resources :books, only: [:new, :create, :edit, :update, :destroy]
     resources :categories
+    
+    # Routes for Quotation functionality
+    resource :cart, only: [:show]
+    resources :quotations, only: [:index]
+    resources :order_items, only: [:create, :update, :destroy]
   end
   resources :books, only: [:index, :show]
 
   resources :contact_forms, only: [:new, :create]
+
+
   
   get 'about' => 'pages#about' #creates about_path
 
