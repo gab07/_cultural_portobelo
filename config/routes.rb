@@ -8,12 +8,12 @@ Rails.application.routes.draw do
   end
 
   authenticate :user do
+    get '/admin' => 'sites#index'
   end
 
   authenticated :user do
     resources :books, only: [:new, :create, :edit, :update, :destroy]
     resources :categories
-    
     # Routes for Quotation functionality
     resource :cart, only: [:show]
     resources :quotations, only: [:index]

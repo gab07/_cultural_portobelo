@@ -20,32 +20,34 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <% if current_page?(root_path) %>
-          <form class="navbar-form navbar-left" id='search_form'>
-            <%= form_tag books_path, :method => 'get', id: "search-form", role: "search" do %>
-              <%= text_field_tag :search, params[:search], class:"form-control search-query", id:"search-f", placeholder: "Buscador..." %>
-            <% end %>
-          </form>
+        <% if current_page?(quotations_path) ||current_page?(root_path) %>
+          <%= render 'layouts/search' %>
         <% end %>
-
-        <% if user_signed_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nuevo <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li class="header_new_link"><%= link_to new_book_path do %>
-                  <span class="glyphicon glyphicon-plus"></span> Producto
-                <% end %>
-              </li>
-              <li class=""><%= link_to new_category_path do %>
-                  <span class="glyphicon glyphicon-plus"></span> Categoría
-                <% end %>
-              </li>
-              <li class=""><%= link_to quotations_path do %>
-                  <span class="glyphicon glyphicon-plus"></span> Cotización
-                <% end %>
-              </li>
+        
+            <% if user_signed_in? %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nuevo <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li class="header_new_link"><%= link_to new_book_path do %>
+                      <span class="glyphicon glyphicon-plus"></span> Producto
+                    <% end %>
+                  </li>
+                  <li class=""><%= link_to new_category_path do %>
+                      <span class="glyphicon glyphicon-plus"></span> Categoría
+                    <% end %>
+                  </li>
+                  <li class=""><%= link_to quotations_path do %>
+                      <span class="glyphicon glyphicon-plus"></span> Cotización
+                  </li>
+              <% end %>
             </ul>
           </li>
+          
+<!-- Boton para revisar cotización actual -->
+          <% if current_page?(quotations_path) %>
+            <li class="cart-text"><%= render 'quotations/quotation_text' %></li>
+          <% end %>
+
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
             <ul class="dropdown-menu">

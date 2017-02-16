@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class ContactFormsController < ApplicationController
   before_action :set_contact_form, only: [:show, :edit, :update, :destroy]
 
