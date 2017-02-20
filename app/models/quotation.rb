@@ -1,5 +1,7 @@
 class Quotation < ActiveRecord::Base
-	has_many :order_items
+	belongs_to :user
+	has_one :client
+	has_many :books, through: :quotation_book_relations
 
 	# Search functionality query for books
 	def self.search(search)

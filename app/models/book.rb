@@ -1,7 +1,7 @@
 class Book < ActiveRecord::Base
 	has_many :book_category_relations
 	has_many :categories, through: :book_category_relations
-	has_many :order_items
+	
 
 	accepts_nested_attributes_for :book_category_relations
 
