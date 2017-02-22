@@ -12,11 +12,11 @@ Rails.application.routes.draw do
   end
 
   authenticated :user do
-    resources :books, only: [:new, :create, :edit, :update, :destroy]
+    resources :books
     resources :categories
     # Routes for Quotation functionality
     resource :cart, only: [:show]
-    resources :quotations, only: [:index]
+    resources :quotations
     resources :order_items, only: [:create, :update, :destroy]
   end
   resources :books, only: [:index, :show]
