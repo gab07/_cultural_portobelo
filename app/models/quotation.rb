@@ -2,8 +2,10 @@ class Quotation < ActiveRecord::Base
 	belongs_to :user
 	has_many :clients
 
+# Quotation-Books Relations
 	has_many :quotation_book_relations
 	has_many :books, through: :quotation_book_relations
+	accepts_nested_attributes_for :quotation_book_relations, :books
 
 	before_save :update_subtotal
 

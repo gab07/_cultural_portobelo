@@ -1,11 +1,14 @@
 class Book < ActiveRecord::Base
+
+	# Relations for book-category
 	has_many :book_category_relations
 	has_many :categories, through: :book_category_relations
+	accepts_nested_attributes_for :book_category_relations
 	
+	# Relations for quotation-book
 	has_many :quotation_book_relations
 	has_many :quotations, through: :quotation_book_relations
-	
-	accepts_nested_attributes_for :book_category_relations
+	accepts_nested_attributes_for :quotation_book_relations
 
 	#Paperclip gem validations
 	has_attached_file :cover,

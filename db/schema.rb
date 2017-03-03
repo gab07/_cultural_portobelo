@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220083959) do
+ActiveRecord::Schema.define(version: 20170303013434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170220083959) do
     t.string   "ruc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "dv"
   end
 
   create_table "contact_forms", force: :cascade do |t|
@@ -98,7 +99,7 @@ ActiveRecord::Schema.define(version: 20170220083959) do
   create_table "quotations", force: :cascade do |t|
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
-    t.string   "subtotal"
+    t.decimal  "subtotal"
     t.decimal  "tax",              precision: 12, scale: 2
     t.decimal  "shipping",         precision: 12, scale: 2
     t.decimal  "total",            precision: 12, scale: 2

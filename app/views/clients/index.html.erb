@@ -1,0 +1,33 @@
+<div class="row category-index-wrapper">
+  <div class="col-md-4"> 
+    <h1>Listado de Clientes</h1>
+    <table class="table category-table">
+      <div class="col-md-4">
+        
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Ruc</th>
+          <th>Dv</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @clients.each do |client| %>
+          <tr>
+            <td><%= client.name %></td>
+            <td><%= client.ruc %></td>
+            <td><%= client.dv %></td>
+            <td><%= link_to 'Editar', edit_client_path(client) %></td>
+            <td><%= link_to 'Eliminar', client, method: :delete, data: { confirm: 'Seguro quieres eliminar a este cliente?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+      </div>
+    </table>
+
+    <br>
+    <%= link_to 'Nuevo Cliente', new_client_path, :class =>"btn btn-default" %>
+  </div>
+</div>

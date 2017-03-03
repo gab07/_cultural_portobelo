@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   authenticated :user do
     resources :books
     resources :categories
+    resources :clients
     # Routes for Quotation functionality
     resource :cart, only: [:show]
     resources :quotations

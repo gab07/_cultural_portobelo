@@ -1,10 +1,7 @@
-<%= nested_form_for @client,:url => quotations_path(@quotation), :html => { id: "search-form", class: 'form-horizontal form-label-left' , novalidate: 'novalidate' } do |f| %>
-  <span class="section">Informacion de Orden</span>
-  <%= render  partial:'order_forms/shared_fields', locals: { f: f } %>
-
-  <%= f.fields_for :oe_order do |oe_order_form| %>
-      <%= render  partial:'form', locals: { f: oe_order_form, oe_order: @order.oe_order} %>
-  <% end %>
-
-<% end %>
-<%= render  partial:'order_forms/modal_client' %>
+<div class="row">
+  <div class="col-md-offset-2 col-md-8 panel panel-default">
+    <h5>Nueva cotización</h5><br>
+    <%= render 'form' %>
+    <%= link_to 'Regresar', quotations_path %>
+  </div>
+</div>

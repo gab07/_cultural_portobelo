@@ -14,15 +14,15 @@
       </div>
     <% end %>
 
-    <div class="col-md-3">
-      <div class="form-group">
-        <%= f.label :Publicado %>
-        <%= f.check_box :published %>
-      </div>
-      
-      <div class="form-group">
-     
-      </div>
+    <div class="col-md-5">
+      <%= f.label :Client %><br>
+      <ul class="category_list">
+        <% Client.recent.each do |client| %>
+          <li class="category_">
+            <%= check_box_tag "client_ids[]", client.id, @quotation.clients.include?(client), :name => 'quotation[client_ids][]' %>  <%=client.name %>
+          </li>
+        <% end %>
+      </ul>
     </div>
 
     <div class="col-md-2">
