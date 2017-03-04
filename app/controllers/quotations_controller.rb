@@ -21,6 +21,7 @@ class QuotationsController < ApplicationController
 
   def create
     @quotation = Quotation.new(quotation_params)
+    @quotation.user_id = current_user.id
     if @quotation.save
       if params[:book] 
         params[:book].each do |book|
@@ -40,7 +41,7 @@ class QuotationsController < ApplicationController
     end
 
     def quotation_params
-      params.require(:books).permit(:subtotal, :tax, :shipping, :total, :quotation_status, user_ids: [], client_ids: [])
+      params.require(:quotations).permit(:subtotal, :tax, :shipping, :total, :quotation_status, user_ids: [], client_id: [])
     end
 
 end
