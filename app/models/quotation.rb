@@ -1,6 +1,6 @@
 class Quotation < ActiveRecord::Base
 	belongs_to :user
-	has_many :clients
+	has_one :client
 
 # Quotation-Books Relations
 	has_many :quotation_book_relations
