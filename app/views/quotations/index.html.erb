@@ -1,38 +1,35 @@
 <div class="row">
 <h3 class="text-center">Nueva cotización</h3>
 </div>
-
-
 <div class="container">
 	<div class="row">
 	  <div class="col-md-12 col-xs-6">
-
-				<table class="table table-striped quotation-index-table">
-				  <tr>
-			      <th class="col-md-1">Portada</th>
-			      <th class="col-md-5">Título</th>
-			      <th class="col-md-1">Autor</th> 
-			      <th class="col-md-1">Editorial</th>
-			      <th class="col-md-1">Año</th>
-			      <th class="col-md-1">Precio</th>
-			      <th class="col-md-1">País</th>
-			      <th class="col-md-1">Opciones</th>
-				    </tr>
-	    		<% @books.each do |book| %>
-				    <tr>
-				      <td class="col-md-1"><%= image_tag book.cover.url(:thumb) %></td>
-				      <td class="col-md-5"><%= book.title %></td>
-				      <td class="col-md-1"><%= book.author %></td> 
-				      <td class="col-md-1"><%= book.publisher %></td> 
-				      <td class="col-md-1"><%= book.publication_year %></td> 
-				      <td class="col-md-1"><%= number_to_currency book.price %></td> 
-				      <td class="col-md-1"><%= book.country_of_origin %></td> 
-				      <td class="col-md-1">
-	      				<%= render "book_row", book: book, order_item: @order_item %>
-				      </td> 
-				    </tr>
-			    <% end %>
-				</table>
+			<table class="table table-striped quotation-index-table">
+			  <tr>
+		      <th class="col-md-1">Portada</th>
+		      <th class="col-md-5">Título</th>
+		      <th class="col-md-1">Autor</th> 
+		      <th class="col-md-1">Editorial</th>
+		      <th class="col-md-1">Año</th>
+		      <th class="col-md-1">Precio</th>
+		      <th class="col-md-1">País</th>
+		      <th class="col-md-1">Opciones</th>
+			   </tr>
+    		<% @books.each do |book| %>
+			    <tr>
+			      <td class="col-md-1"><%= image_tag book.cover.url(:thumb) %></td>
+			      <td class="col-md-5"><%= book.title %></td>
+			      <td class="col-md-1"><%= book.author %></td> 
+			      <td class="col-md-1"><%= book.publisher %></td> 
+			      <td class="col-md-1"><%= book.publication_year %></td> 
+			      <td class="col-md-1"><%= number_to_currency book.price %></td> 
+			      <td class="col-md-1"><%= book.country_of_origin %></td> 
+			      <td class="col-md-1">
+      			<%= render "book_row", book: book, order_item: @order_item %>
+			      </td> 
+			    </tr>
+		    <% end %>
+			</table>
 	  </div>
 	</div>
 	<div class="text-center">
