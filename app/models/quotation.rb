@@ -1,7 +1,7 @@
 class Quotation < ActiveRecord::Base
 	belongs_to :user
 	has_one :client
-	has_many :books, through: :quotation_book_relations
+	has_many :quotation_items
 
 	# Search functionality query for books
 	def self.search(search)
@@ -21,4 +21,8 @@ class Quotation < ActiveRecord::Base
 	  end
 	  return search_array.uniq!
 	end
+
+	def subtotal
+  	quotation_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
+ 	end
 end

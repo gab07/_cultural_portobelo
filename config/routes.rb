@@ -16,8 +16,9 @@ Rails.application.routes.draw do
     resources :categories
     # Routes for Quotation functionality
     resource :cart, only: [:show]
-    resources :quotations, only: [:index]
-    resources :order_items, only: [:create, :update, :destroy]
+    resources :clients
+    resources :quotations, only: [:index, :new, :create, :edit, :update]
+    resources :quotation_items, only: [:create, :update, :destroy]
   end
   resources :books, only: [:index, :show]
 

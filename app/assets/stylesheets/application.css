@@ -23,3 +23,9 @@
    margin-top: 25px;
    border-width: 7px;
  }
+
+/*Client modal on quotations/new view moved to right when open.. so this fix it :)*/
+body.mynewpost { 
+	overflow:inherit; padding-right:inherit !important; 
+}
+

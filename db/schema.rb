@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170208015256) do
-=======
-ActiveRecord::Schema.define(version: 20170213232158) do
->>>>>>> cotizador
+ActiveRecord::Schema.define(version: 20170322155117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170213232158) do
     t.string   "ruc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "dv"
   end
 
   create_table "contact_forms", force: :cascade do |t|
@@ -69,32 +66,26 @@ ActiveRecord::Schema.define(version: 20170213232158) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "order_items", force: :cascade do |t|
+  create_table "quotation_items", force: :cascade do |t|
+    t.integer  "quotation_id"
     t.integer  "book_id"
-    t.integer  "order_id"
-    t.decimal  "unit_price",  precision: 12, scale: 3
-    t.decimal  "total_price", precision: 12, scale: 3
-    t.integer  "quantity"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-  end
-
-  add_index "order_items", ["book_id"], name: "index_order_items_on_book_id", using: :btree
-  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
-
-  create_table "orders", force: :cascade do |t|
-    t.decimal  "subtotal",     precision: 12, scale: 3
-    t.decimal  "tax",          precision: 12, scale: 3
-    t.decimal  "shipping",     precision: 12, scale: 3
-    t.decimal  "total",        precision: 12, scale: 3
-    t.integer  "order_status"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.decimal  "unit_price",   precision: 12, scale: 3
+    t.decimal  "total_price",  precision: 12, scale: 3
+    t.integer  "quantity"
   end
 
   create_table "quotations", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.decimal  "subtotal"
+    t.decimal  "tax",              precision: 12, scale: 2
+    t.decimal  "shipping",         precision: 12, scale: 2
+    t.decimal  "total",            precision: 12, scale: 2
+    t.decimal  "quotation_status"
+    t.integer  "user_id"
+    t.integer  "client_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -116,6 +107,6 @@ ActiveRecord::Schema.define(version: 20170213232158) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "order_items", "books"
-  add_foreign_key "order_items", "orders"
+  add_foreign_key "quotation_items", "books"
+  add_foreign_key "quotation_items", "quotations"
 end

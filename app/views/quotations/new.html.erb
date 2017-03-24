@@ -1,10 +1,43 @@
-<%= nested_form_for @client,:url => quotations_path(@quotation), :html => { id: "search-form", class: 'form-horizontal form-label-left' , novalidate: 'novalidate' } do |f| %>
-  <span class="section">Informacion de Cotización</span>
-  <%= render  partial:'order_forms/shared_fields', locals: { f: f } %>
+<%= form_for @quotation do |f| %>
+	<div class="container">
+	  <%= render  partial:'clients/client_row', locals: { f: f } %> 
+	  <div class="">
 
-  <%= f.fields_for :oe_order do |oe_order_form| %>
-      <%= render  partial:'form', locals: { f: oe_order_form, oe_order: @order.oe_order} %>
-  <% end %>
+			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mynewclient">
+        New Post
+      </button>
+
+
+	  </div>
+
+		<br>
+		<br>  	
+	   <button type="submit" class="btn btn-success">Crear cotizacion</button>
+	</div>
 
 <% end %>
-<%= render  partial:'order_forms/modal_client' %>
+
+<!-- Modal  create action -->
+      <%= form_for(@client, remote: true) do |f| %>
+        <div class="modal fade" id="mynewclient" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Nuevo Cliente</h4>
+              </div>
+              <div class="modal-body">
+                <div class="field">
+                  <%= f.label :Nombre_del_cliente %><br>
+                  <%= f.text_area :name, class: "form-control client_name" %>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="mynewpostclose">Close</button>
+                <%= submit_tag "Create", class: "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <!-- Modal -->

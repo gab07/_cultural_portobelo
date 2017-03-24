@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
   def show
-    @order_items = current_order.order_items
+    @quotation_items = current_order.quotation_items
   end
 end

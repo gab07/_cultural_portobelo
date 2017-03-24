@@ -3,6 +3,7 @@ class CreateClients < ActiveRecord::Migration
     create_table :clients do |t|
       t.string :name
       t.string :ruc
+      t.string :dv
 
       t.timestamps null: false
     end
