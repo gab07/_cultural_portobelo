@@ -1,12 +1,13 @@
 class ClientsController < ApplicationController
 	  before_action :set_client, only: [:show, :edit, :update, :destroy]
+	  skip_before_filter :verify_authenticity_token
+
 
 	  # GET /clients
 	  # GET /clients.json
 	  def index
 	     respond_to do |format|
-
-	        format.html { @clients = Client.page(params[:page]).per(20) }
+	      format.html { @clients = Client.paginate(:page => params[:page], :per_page => 8)}
 	    end
 	    #@clients = Cliente.all
 	  end
@@ -29,12 +30,11 @@ class ClientsController < ApplicationController
 	  # POST /clients.json
 	  def create
 	    @client = Client.new(cliente_params)
-
 	    respond_to do |format|
 	      if @client.save
-	        format.js
-	        format.html { redirect_to @client, success: 'Cliente creado exitosamente.' }
+	        format.html { redirect_to '/quotations/new', success: 'Cliente creado exitosamente.' }
 	        format.json { render :show, status: :created, location: @client }
+	        format.js
 	      else
 	        format.html { render :new }
 	        format.json { render json: @client.errors, status: :unprocessable_entity }
@@ -72,7 +72,7 @@ class ClientsController < ApplicationController
 
 	  private
 	    # Use callbacks to share common setup or constraints between actions.
-	    def set_cliente
+	    def set_client
 	      @client = Client.find(params[:id])
 	    end
 

@@ -1,6 +1,9 @@
 class QuotationItem < ActiveRecord::Base
 	belongs_to :book
 	belongs_to :quotation
+	accepts_nested_attributes_for :book
+	accepts_nested_attributes_for :quotation
+
 
 	validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
 	validate :book_present

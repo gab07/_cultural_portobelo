@@ -1,0 +1,5 @@
+<% if @quotation.errors.any? || @quotation_item.error.any? %>
+	alert("not valid.")
+<% else %>
+	$("#new-quotation-item").html("<%= escape_javascript(render('quotations/book_row')) %>")
+<% end %>

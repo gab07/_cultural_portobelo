@@ -9,8 +9,8 @@ class QuotationsController < ApplicationController
   	@quotation = current_quotation
   	@clients = Client.all
   	@client = Client.new
-  	# @books = Book.published_books.search(params[:search]).paginate(:page => params[:page], :per_page => 10)
-  	# @quotation_item = current_quotation.quotation_items.new
+  	@books = Book.published_books.search(params[:search]).paginate(:page => params[:page], :per_page => 10)
+  	@quotation_items = @quotation.quotation_items.new
   end
 
   def create
@@ -19,7 +19,7 @@ class QuotationsController < ApplicationController
   	@quotation.user_id = current_user.id
   	@quotation.client_id = client_id
   	if @quotation.save
-  		redirect_to '/'
+      redirect_to :new
   	else 
   		redirect_to :new
   	end

@@ -1,7 +1,13 @@
 class Quotation < ActiveRecord::Base
 	belongs_to :user
 	has_one :client
+
 	has_many :quotation_items
+	has_many :books, through: :quotation_items
+	accepts_nested_attributes_for :quotation_items
+	accepts_nested_attributes_for :client
+
+
 
 	# Search functionality query for books
 	def self.search(search)

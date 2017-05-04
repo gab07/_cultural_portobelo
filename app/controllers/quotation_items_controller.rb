@@ -22,6 +22,6 @@ class QuotationItemsController < ApplicationController
 
 	private
 	  def quotation_items_params
-	    params.require(:quotation_item).permit(:quantity, :book_id)
+	    params.require(:quotation_item).permit(:quantity, :book_id , :quotation_id)
 	  end
 end

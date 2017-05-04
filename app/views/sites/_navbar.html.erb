@@ -20,7 +20,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <% if current_page?(quotations_path) ||current_page?(root_path) %>
+        <% if current_page?(new_quotation_path) ||current_page?(root_path) %>
           <%= render 'layouts/search' %>
         <% end %>
         

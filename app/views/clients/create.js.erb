@@ -1,6 +1,11 @@
-$('#mynewclient').modal('hide');
-$('.client_name').val('');
+// $('#mynewclient').modal('hide');
+// $('.client_name').val('');
 
-// add post at the beginning. 'j' its to reference javascript remote request.
-$(".cart-text").html("<%= escape_javascript(render 'quotations/new') %>")
-$('#post_<%= @post.id %>').hide().fadeIn(1000);
+// // add post at the beginning. 'j' its to reference javascript remote request.
+// $(".cart-text").html("<%= escape_javascript(render 'quotations/new') %>")
+// $('#post_<%= @post.id %>').hide().fadeIn(1000);
+
+$("#order_cliente_id").empty()
+$('#order_cliente_id').html("<%= escape_javascript options_from_collection_for_select(@clientes, :id, :nombre_cliente) %>");
+$('.bs-example-modal-lg').modal('hide')
+$('.bs-example-modal-lg :input[type="text"]').val('')
