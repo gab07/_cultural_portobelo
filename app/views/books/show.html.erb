@@ -17,7 +17,9 @@
           <h4 class="product-publisher"><strong>Editorial:</strong> <%= @book.publisher %></h4>
           <h4 class="product-publication_year"><strong>Año de Publicación:</strong> <%= @book.publication_year %></h4>
           <h4 class="product-country_of_origin"><strong>País de origen:</strong> <%= @book.country_of_origin %></h4>
-          <h4 class="product-category"><strong>Categoría:</strong> <%= @book.categories[0].name %></h4>
+          <% if @book.categories[0].name.present? %>
+            <h4 class="product-category"><strong>Categoría:</strong> <%= @book.categories[0].name %></h4>
+          <% end %>
         <span> 
           <% if @book.discount == nil %>
             <p class="price pull-right">$<%= @book.price.to_i %></p>
