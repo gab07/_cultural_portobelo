@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     # Routes for Quotation functionality
     resource :cart, only: [:show]
     resources :clients
-    resources :quotations, only: [:index, :new, :create, :edit, :update]
+    resources :quotations, only: [:index, :show, :new, :create, :edit, :update]
     resources :quotation_items, only: [:create, :update, :destroy]
   end
   resources :books, only: [:index, :show]

@@ -1,0 +1,51 @@
+
+
+<div class="container">	
+	<div class="row">
+		<table class="table table-striped">
+			<tr>
+			  <th class="col-md-1">ID</th>
+			  <th class="col-md-1">Cliente</th>
+			  <th class="col-md-1">Usuario</th>
+			  <tr>
+			  	<td><%= @quotation.id%></td>
+			  	<td><%= @quotation.client_id.nil?%></td>
+			  	<td><%= @quotation.user_id.nil?%></td>
+			  </tr>
+			</tr>
+		</table>
+	</div>
+	<div class="row">
+	    <h4>Productos</h4>
+	    <div class="row">
+	      <div class="col-md-12">
+	        <table class="table table-striped">
+	          <tr>
+	            <th class="col-md-1">Portada</th>
+	            <th class="col-md-4">Título</th>
+	            <th class="col-md-1">Autor</th>
+	            <th class="col-md-1">Editorial</th>
+	            <th class="col-md-1">Año</th>
+	            <th class="col-md-1">Précio</th>
+	            <th class="col-md-1">País de P.</th>
+	          </tr>
+	          <% @quotation_items.each do |quotation_item| %>
+	           <tr>
+	             <td><%= image_tag quotation_item.book.cover.url(:thumb) %></td>
+	             <td><%= quotation_item.book.title %></td>
+	             <td><%= quotation_item.book.author %></td>
+	             <td><%= quotation_item.book.publisher %></td>
+	             <td><%= quotation_item.book.publication_year %></td>
+	             <td>$<%= quotation_item.book.price %>0</td>
+	             <td><%= quotation_item.book.country_of_origin %></td>
+	           </tr>
+	          <% end %>
+	      </table>
+	      </div>
+	    </div>
+	    </div>
+
+	    <%= link_to 'Editar', edit_quotation_path(@quotation) %> |
+	    <%= link_to 'Agregar más libros', books_path %>
+	 </div>
+</div>
