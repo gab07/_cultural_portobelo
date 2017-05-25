@@ -5,7 +5,10 @@
 				<%= render 'books/books_filters' %>
 			</div>
 			<div class="col-md-10">
-				<%= render 'books/index' %>
+					<%= render 'books/index' %>
+				<% if current_page?('books/novedades') %>
+					<%= render 'books/new_books_index' %>
+				<% end %>
 			</div>
 		</div>
 	</div>

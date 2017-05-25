@@ -4,8 +4,18 @@ class BooksController < ApplicationController
   def index
     if params[:search]
       @books = Book.published_books.search(params[:search]).paginate(:page => params[:page], :per_page => 8)
+      @quotation_item = current_quotation.quotation_items.new
     else
       @books = Book.published_books.recent.paginate(:page => params[:page], :per_page => 8)
+      @quotation_item = current_quotation.quotation_items.new
+    end
+  end
+
+  def new_books_index
+    if params[:search]
+      @new_books = Book.new_books.search(params[:search]).paginate(:page => params[:page], :per_page => 8)
+    else
+      @new_books = Book.new_books.recent.paginate(:page => params[:page], :per_page => 8)
     end
   end
 
@@ -65,7 +75,7 @@ class BooksController < ApplicationController
     end
 
     def book_params
-      params.require(:book).permit(:title, :author, :price, :publisher, :publication_year, :cover, :country_of_origin, :description, :published, category_ids: [])
+      params.require(:book).permit(:title, :author, :price, :publisher, :publication_year, :cover, :country_of_origin, :description, :published, :new_book, category_ids: [])
     end
 
 end

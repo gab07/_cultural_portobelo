@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322155117) do
+ActiveRecord::Schema.define(version: 20170524171825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170322155117) do
     t.boolean  "published",                                  default: true
     t.decimal  "discount",           precision: 5, scale: 2
     t.boolean  "first_page",                                 default: false
+    t.boolean  "new_book",                                   default: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -75,6 +76,9 @@ ActiveRecord::Schema.define(version: 20170322155117) do
     t.decimal  "total_price",  precision: 12, scale: 3
     t.integer  "quantity"
   end
+
+  add_index "quotation_items", ["book_id"], name: "index_quotation_items_on_book_id", using: :btree
+  add_index "quotation_items", ["quotation_id"], name: "index_quotation_items_on_quotation_id", using: :btree
 
   create_table "quotations", force: :cascade do |t|
     t.datetime "created_at",                                null: false

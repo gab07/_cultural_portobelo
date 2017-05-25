@@ -68,7 +68,13 @@
 			</div>
 			 	<% end %>
 		</div>
-
+    <% if current_page?(books_path) %>
+      <div class="row">
+        <div class="col-xs-12 text-right">
+          <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+        </div>
+      </div>
+    <% end %>
 	<%= yield %>
 
 

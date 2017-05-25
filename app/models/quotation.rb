@@ -1,12 +1,21 @@
 class Quotation < ActiveRecord::Base
+	
 	belongs_to :user
 	has_one :client
 
 	has_many :quotation_items
-	has_many :books, through: :quotation_items
+	
 	accepts_nested_attributes_for :quotation_items
 	accepts_nested_attributes_for :client
+	before_save :update_subtotal
 
+	def subtotal
+    quotation_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
+  end
+
+  def update_subtotal
+    self[:subtotal] = subtotal
+  end
 
 
 	# Search functionality query for books

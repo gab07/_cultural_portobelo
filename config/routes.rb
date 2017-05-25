@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
   root 'sites#index'
+
+  
   #routes for Devise gem
   devise_for :users
   devise_scope :user do
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   authenticated :user do
-    resources :books, only: [:new, :create, :edit, :update, :destroy]
+    resources :books, only: [:index, :new, :create, :edit, :update, :destroy]
     resources :categories
     # Routes for Quotation functionality
     resource :cart, only: [:show]
@@ -22,8 +24,10 @@ Rails.application.routes.draw do
   end
   resources :books, only: [:index, :show]
 
+  # Route for 'novedades'
+  get '/novedades' => 'books#new_books_index' 
+  
   resources :contact_forms, only: [:new, :create]
-
 
   
   get 'about' => 'pages#about' #creates about_path

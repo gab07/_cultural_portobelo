@@ -1,0 +1,28 @@
+<div class="container">	
+	<div class="row">
+	    <h2>Libros</h2>
+	    <div class="row">
+	      <div class="col-md-12">
+	        <table class="table table-striped">
+	          <tr>
+	            <th class="col-md-1">Portada</th>
+	            <th class="col-md-4">Título</th>
+	            <th class="col-md-1">Autor</th>
+	            <th class="col-md-1">Editorial</th>
+	            <th class="col-md-1">Año</th>
+	            <th class="col-md-1">Précio</th>
+	            <th class="col-md-1">País de P.</th>
+	          </tr>
+	          <% @books.each do |book| %>
+	            <%= render "book_row", book: book, quotation_item: @quotation_item %>
+	          <% end %>
+	      </table>
+	      </div>
+	    </div>
+	    </div>
+
+	    <div class="text-center">
+	     <%= will_paginate @books,:previous_label => 'Anterior', :next_label => 'Siguiente', renderer: BootstrapPagination::Rails %>
+	   </div>
+	 </div>
+</div>

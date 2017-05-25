@@ -5,10 +5,8 @@ class Book < ActiveRecord::Base
 
 	# quotation creation relations
 	has_many :quotation_items
-	has_many :quotations, through: :quotation_items
+
 	accepts_nested_attributes_for :quotation_items
-
-
 
 	#Paperclip gem validations
 	has_attached_file :cover,
@@ -48,6 +46,10 @@ class Book < ActiveRecord::Base
 
 	def self.published_books
 		all.where(published: true)
+	end
+
+	def self.new_books
+		all.where(new_book: true)
 	end
 
 	def self.first_page

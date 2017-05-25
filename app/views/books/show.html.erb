@@ -9,7 +9,7 @@
     <div class="col-sm-5 col-sm-offset-1">
       <div class="row">
         <% if current_user && current_user  %>
-          <p class="pull-right"><%= link_to t("edit_book"), edit_book_path(@book.id)  %><p>
+          <p class="pull-right"><%= link_to t("editar_libro"), edit_book_path(@book.id)  %><p>
         <% end %>
         <br>
         <h3 class="product-title"><strong><%= @book.title %></strong>
@@ -35,11 +35,7 @@
         <br>
         <p class="description"><%= @book.description %></p>
         <br>
-  <!--       Add to cart button -->
-  <!--       <button type="button" class="btn btn-default add-to-cart col-sm-10 col-sm-offset-1"><i class="fa fa-shopping-cart"></i> < t("add_to_cart") %></button>
-        <p class="show-delivery col-sm-10 col-sm-offset-1"><t("show_delivery") %></p> -->
-          <!-- <a href="#contact-product"> <button type="button" class="btn btn-default add-to-cart col-sm-10 col-sm-offset-1" id="interested-product"><%= t("email_us") %></button></a>
-          <p class="show-delivery col-sm-10 col-sm-offset-1"><%= t("email_order") %></p> -->
+  
         </div>
       </div>
     </div>
