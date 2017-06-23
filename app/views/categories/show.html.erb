@@ -1,7 +1,9 @@
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+<div class="container">
+	<p>
+	  <strong>Name:</strong>
+	  <%= @category.name %>
+	</p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+	<%= link_to 'Edit', edit_category_path(@category) %> |
+	<%= link_to 'Back', categories_path %>
+</div>

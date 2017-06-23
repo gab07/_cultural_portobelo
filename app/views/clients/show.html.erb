@@ -1,0 +1,17 @@
+<div class="container">
+	<p>
+	  <strong>Name:</strong>
+	  <%= @client.name %>
+	</p>
+	<p>
+	  <strong>R.U.C.:</strong>
+	  <%= @client.ruc %>
+	</p>
+	<p>
+	  <strong>DV:</strong>
+	  <%= @client.dv %>
+	</p>
+
+	<%= link_to 'Editar', edit_client_path(@client) %> |
+	<%= link_to 'Clientes', clients_path %>
+</div>

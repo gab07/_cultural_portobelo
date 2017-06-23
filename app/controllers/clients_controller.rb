@@ -1,6 +1,5 @@
 class ClientsController < ApplicationController
 	  before_action :set_client, only: [:show, :edit, :update, :destroy]
-	  skip_before_filter :verify_authenticity_token
 
 
 	  # GET /clients
@@ -9,7 +8,7 @@ class ClientsController < ApplicationController
 	     respond_to do |format|
 	      format.html { @clients = Client.paginate(:page => params[:page], :per_page => 8)}
 	    end
-	    #@clients = Cliente.all
+	    #@clients = client.all
 	  end
 
 	  # GET /clients/1
@@ -19,7 +18,7 @@ class ClientsController < ApplicationController
 
 	  # GET /clients/new
 	  def new
-	    @cliente = Client.new
+	    @client = Client.new
 	  end
 
 	  # GET /clients/1/edit
@@ -29,10 +28,10 @@ class ClientsController < ApplicationController
 	  # POST /clients
 	  # POST /clients.json
 	  def create
-	    @client = Client.new(cliente_params)
+	    @client = Client.new(client_params)
 	    respond_to do |format|
 	      if @client.save
-	        format.html { redirect_to '/quotations/new', success: 'Cliente creado exitosamente.' }
+	        format.html { redirect_to clients_path, success: 'client creado exitosamente.' }
 	        format.json { render :show, status: :created, location: @client }
 	        format.js
 	      else
@@ -48,7 +47,7 @@ class ClientsController < ApplicationController
 	  def update
 	    respond_to do |format|
 	      if @client.update(client_params)
-	        format.html { redirect_to @client, success: 'Cliente editado exitosamente.' }
+	        format.html { redirect_to @client, success: 'client editado exitosamente.' }
 	        format.json { render :show, status: :ok, location: @client }
 	      else
 	        format.html { render :edit }
@@ -62,10 +61,10 @@ class ClientsController < ApplicationController
 		def destroy
 	   	respond_to do |format|
 	    	if @client.destroy
-	      	format.html { redirect_to client_url, success: 'Cliente eliminado exitosamente.' }
+	      	format.html { redirect_to clients_path, success: 'client eliminado exitosamente.' }
 	      	format.json { head :no_content }
 	     	else
-	      	format.html { redirect_to clients_url, danger: 'No se pudo eliminar cliente- existen asociaciones.' }
+	      	format.html { redirect_to clients_url, danger: 'No se pudo eliminar client- existen asociaciones.' }
 	    	end
 	  	end
 		end
@@ -77,7 +76,7 @@ class ClientsController < ApplicationController
 	    end
 
 	    # Never trust parameters from the scary internet, only allow the white list through.
-	    def cliente_params
+	    def client_params
 	     params.require(:client).permit(:name, :ruc, :dv)
 	    end	
 end

@@ -1,0 +1,9 @@
+<div class="container">
+	
+<h3>Editando: <strong> <%= @client.name.inspect %></strong></h3>
+
+<%= render 'form' %>
+
+<%= link_to 'Ver', @client %> |
+<%= link_to 'Clientes', clients_path %>
+</div>
