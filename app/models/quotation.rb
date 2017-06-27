@@ -17,6 +17,13 @@ class Quotation < ActiveRecord::Base
     self[:subtotal] = subtotal
   end
 
+  def quotation_client(quotation)
+  	client_name = Client.find(quotation.client_id).name
+  	client_ruc = Client.find(quotation.client_id).ruc
+  	client_dv = Client.find(quotation.client_id).dv
+  	return client_name, client_ruc, client_dv
+  end
+
 
 	# Search functionality query for books
 	def self.search(search)

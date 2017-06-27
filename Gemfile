@@ -22,6 +22,7 @@ gem 'twitter-bootstrap-rails'
 gem "font-awesome-rails"
 gem 'figaro'
 gem 'whenever', require: false
+gem 'wicked'
 
 group :development, :test do
   gem 'byebug'

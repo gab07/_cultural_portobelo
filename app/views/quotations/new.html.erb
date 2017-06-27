@@ -1,75 +1,12 @@
-<%= form_for @quotation do |f| %>
 <div class="container">
-  <div class="row quotation-client">    
-    <button type="button" class="btn btn-primary btn-sm quotation-new-client-button" data-toggle="modal" data-target="  #mynewclient">
-      Nuevo Cliente
-    </button>
-    <%= render  partial:'clients/client_row', locals: { f: f } %> 
-  </div>
-  <hr>
   <div class="row">
-    <h2>Libros</h2>
-    <div class="row">
-      <div class="col-md-12">
-        <table class="table table-striped">
-          <tr>
-            <th class="col-md-1">Portada</th>
-            <th class="col-md-4">Título</th>
-            <th class="col-md-1">Autor</th>
-            <th class="col-md-1">Editorial</th>
-            <th class="col-md-1">Año</th>
-            <th class="col-md-1">Précio</th>
-            <th class="col-md-1">País de P.</th>
-          </tr>
-
-          <% @books.each do |book| %>
-            <%= render "book_row", book: book, quotation_item: @quotation_item %>
-          <% end %>
-      </table>
-      </div>
-    </div>
-    </div>
-
-    <div class="text-center">
-     <%= will_paginate @books,:previous_label => 'Anterior', :next_label => 'Siguiente', renderer: BootstrapPagination::Rails %>
-   </div>
- </div>
- <button type="submit" class="btn btn-success">Crear cotizacion</button>
-
-</div>
-<% end %>
-
-<!-- Modal  create action -->
-<%= form_for(@client, remote: true) do |f| %>
-<div class="modal fade" id="mynewclient" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Nuevo Cliente</h4>
-      </div>
-      <div class="modal-body">
-        <div class="field">
-          <%= f.label :Nombre_del_cliente %><br>
-          <%= f.text_area :name, class: "form-control client_name" %>
-          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        </div>
-        <div class="field">
-          <%= f.label :RUC %>
-          <%= f.text_area :ruc, class: "form-control client_name" %>
-        </div>
-        <div class="field">
-          <%= f.label :DV %><br>
-          <%= f.text_area :dv, class: "form-control client_name" %>
-        </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" id="mynewpostclose">Close</button>
-        <%= submit_tag "Create", class: "btn btn-primary" %>
-      </div>
-    </div>
+    
+  <h1>Para quien es la cotización?</h1>
+  <%= form_for @quotation do |f| %>
+    <%= f.collection_select :client_id, Client.all, :id, :name %> <br> <br>
+    <p>
+    	<%= f.submit_tag "Siguiente" %>
+    </p>
+  <% end %>
   </div>
 </div>
-<% end %>
-<!-- Modal -->

@@ -1,0 +1,24 @@
+<tr>
+  <td><%= image_tag book.cover.url(:thumb) %></td>
+  <td><%= book.title %></td>
+  <td><%= book.author %></td>
+  <td><%= book.publisher %></td>
+  <td><%= book.publication_year %></td>
+  <td>$<%= book.price %>0</td>
+  <td><%= book.country_of_origin %></td>
+  <td class="col-md-1" id="new-quotation-item">
+
+    <%= form_for quotation_item, remote: true do |f| %>
+    
+      <div class="input-group">
+        <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+        <div class="input-group-btn">
+          <%= f.hidden_field :book_id, value: book.id %>
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <%= f.submit "+", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+
+  </td> 
+</tr>
