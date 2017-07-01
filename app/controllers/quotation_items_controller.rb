@@ -3,6 +3,7 @@ class QuotationItemsController < ApplicationController
 	    @quotation = current_quotation
 	    @quotation_item = @quotation.quotation_items.new(quotation_item_params)
 	    @quotation.save
+	    binding.pry
 	    session[:quotation_id] = @quotation.id
 	  end
 
