@@ -18,7 +18,6 @@ class QuotationsController < ApplicationController
 	end
 
 	def create
-		binding.pry
 		@quotation.client_id = params[:quotation][:client_id]
 		if @quotation.save
 			session[:quotation_id] = @quotation.id
@@ -43,6 +42,6 @@ class QuotationsController < ApplicationController
 	end
 
 	def quotation_params
-		params.require(:quotation).permit(:subtotal, :tax, :shipping, :total, :user_id, :client_id)
+		params.require(:quotation).permit(:subtotal, :tax, :shipping, :total, :user_id, :client_id,)
 	end
 end

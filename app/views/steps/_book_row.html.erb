@@ -8,7 +8,7 @@
   <td><%= book.country_of_origin %></td>
   <td class="col-md-1" id="new-quotation-item">
 
-    <%= form_for quotation_item, remote: true do |f| %>
+    <%= form_for(quotation_item, url: quotation_items_path, remote: true) do |f| %>
     
       <div class="input-group">
         <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
