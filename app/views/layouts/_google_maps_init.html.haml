@@ -1,0 +1,18 @@
+:javascript
+  function initMap() {
+    var myLatLng = {lat: 8.986808, lng: -79.531414};
+
+    // Create a map object and specify the DOM element for display.
+    var map = new google.maps.Map(document.getElementById('googleMap'), {
+      center: myLatLng,
+      scrollwheel: false,
+      zoom: 17
+    });
+
+    // Create a marker and set its position.
+    var marker = new google.maps.Marker({
+      map: map,
+      position: myLatLng,
+      title: 'Cultural Portobelo'
+    });
+  };
