@@ -1,49 +1,49 @@
-!!!
-%html
-  %head
-    %title Cultural Portobelo | Textos legales Panamá
-    %link{rel: "shortcut icon", href: "/assets/sites/icon_header.jpg"}
+doctype html
+html
+  head
+    title Cultural Portobelo | Textos legales Panamá
+    link rel="shortcut icon" href="/assets/sites/icon_header.jpg"
 
     = csrf_meta_tag 
     = stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true  
 
-    <!-- Metatag for google suit -->
-    %meta{name: "google-site-verification", content: "L1Rvv1GxJ6tLwlroiuKK1jI3TEXPzeyExU_9z6eV7MY"}
+    /! Metatag for google suit
+    meta name="google-site-verification" content="L1Rvv1GxJ6tLwlroiuKK1jI3TEXPzeyExU_9z6eV7MY"
     
-    %meta{http: {equiv: "X-UA-Compatible"}, content: "IE=edge"}
-    %meta{name: "viewport", content: "width=device-width, initial-scale=1"}
-    %meta{name:"webtitle", content:"Cultural Portobelo | Textos legales Panamá"} 
-    %meta{name: "keywords", content: "maestria en derecho penal, curso de derecho penal, especializacion en derecho penal, codigo de trabajo, codigo de la familia, codigo judicial, constitucion politica de panama, codigo civil, codigo penal, codigo fiscal, codigo de comercio, panamanian law books"}
-    %meta{name: "author", content: "Acnover"}
-    %meta{name:"description", content:"Textos legales, constitucion, editorial y libreria juridica en Panamá"}
-    %meta{name: "webdescription", content: "Libros y algo más"}
-    %script{src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyASwfqO4gxqJWgPXjkMyofNhVipH7dH3xo&callback=initMap", async: true, defer: true}
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    meta name="webtitle" content="Cultural Portobelo | Textos legales Panamá" 
+    meta name="keywords" content="maestria en derecho penal, curso de derecho penal, especializacion en derecho penal, codigo de trabajo, codigo de la familia, codigo judicial, constitucion politica de panama, codigo civil, codigo penal, codigo fiscal, codigo de comercio, panamanian law books"
+    meta name="author" content="Acnover"
+    meta name="description" content="Textos legales, constitucion, editorial y libreria juridica en Panamá"
+    meta name="webdescription" content="Libros y algo más"
+    scrip[src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASwfqO4gxqJWgPXjkMyofNhVipH7dH3xo&callback=initMap" async defer]
 
     = render partial: 'layouts/google_maps_init' 
     = render partial: 'layouts/facebook_pixel' 
 
-  %body
+  body
     = render partial: 'layouts/navbar' 
-    %div{ class: "flash-alerts" }
+    div.flash-alerts
       - if flash[:alert]
-        %div{ class: "alert alert-info", role: "alert" }
-          %p{ class: "flash-error" }
+        div.alert.alert-info role="alert"
+          p.flash-error
             = flash[:alert]
       - if flash[:notice]
-        %div{ class: "alert alert-info", role: "alert" }
-          %p{ class: "flash-notice" }
+        div.alert.alert-info role="alert"
+          p.flash-notice
             = flash[:alert]
 
     - if current_page?(books_path)
-      %div{class: "row"}
-        %div{class: "col-xs-12 text-right"}
-          %h1{class: "cart-text"}
+      div.row
+        div.col-xs-12.text-right
+          h1.cart-text
             = render 'layouts/cart_text'
 
     = yield
 
     = render partial: 'layouts/footer'
 
-    :javascript
+    javascript:
       listener();
