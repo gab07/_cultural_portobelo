@@ -1,55 +1,25 @@
-nav.navbar.navbar-default.navbar-fixed-top.navbar-menu
-div.container-fluid
-  div.navbar-header
-    button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"
-      span.sr-only
-        | Toggle navigation
-      span.icon-bar
-      span.icon-bar
-      span.icon-bar
-    a.navbar-brand href="/"
-      | Cultural Portobelo
-
-  div.collapse.navbar-collapse#bs-example-navbar-collapse-1
-    ul.nav.navbar-nav.navbar-left.menu-links
-      li= link_to 'Catálogo', root_path
-      li= link_to 'Editorial', about_path
-      li= link_to 'Contáctenos', new_contact_form_path
-      li= link_to 'Novedades', novedades_path
-
-    ul.nav.navbar-nav.navbar-right
-      - if current_page?(books_path) || current_page?(root_path)
-        = render 'layouts/search'
+header
+  div.container
+    nav.navbar
+      a.navbar-brand href="/"
+        | Cultural Portobelo
+      / search-form starts here
+      = form_tag books_path, :method => 'get', id: "search-form", role: "search" do
+        = text_field_tag :search, params[:search], class: "form-control search-query", id:"search-f", placeholder: "Buscador..." 
+      / nav-bar starts here
+      ul.nav
+        li.nav-item= link_to 'Catálogo', root_path, class: "nav-link"
+        li.nav-item= link_to 'Editorial', about_path, class: "nav-link"
+        li.nav-item= link_to 'Contáctenos', new_contact_form_path, class: "nav-link"
+        li.nav-item= link_to 'Novedades', novedades_path, class: "nav-link"
 
       - if user_signed_in?
-        li.dropdown
-          a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
-            | Nuevo 
-            span< class="caret"
-          ul class="dropdown-menu"
-            li class="header_new_link"
-              a href="#{new_book_path}"
-                span> class="glyphicon glyphicon-plus"
-                | Producto
-            li class="header_new_link"
-              a href="#{new_category_path}"
-                span> class="glyphicon glyphicon-plus"
-                | Categoria
-            li class="header_new_link"
-              a href="#{new_client_path}"
-                span> class="glyphicon glyphicon-plus"
-                | Cliente
-            li class="header_new_link"
-              a href="#{new_quotation_path}"
-                span> class="glyphicon glyphicon-plus"
-                | Cotizacion
+        ul.nav
+          li.nav-item= link_to "Nuevo Producto", new_book_path, class: "nav-link"
+          li.nav-item= link_to "Nuevo Categoria", new_category_path, class: "nav-link"
+          li.nav-item= link_to "Nuevo Cliente", new_client_path, class: "nav-link"
+          li.nav-item= link_to "Nuevo Cliente", new_quotation_path, class: "nav-link"
 
-        / Boton para revisar cotización actual
-        li.dropdown
-          a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
-            = current_user.email
-            span< class="caret"
-          ul.dropdown-menu
-            li= link_to "Configuración", edit_user_registration_path
-            li role="separator" class="divider"
-            li= link_to 'Salir', destroy_user_session_path, method: :delete 
+        ul.nav
+          li.nav-item= link_to "Configuración", edit_user_registration_path, class: "nav-link"
+          li.nav-item= link_to 'Salir', destroy_user_session_path, method: :delete, class: "nav-link"
