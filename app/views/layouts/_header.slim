@@ -3,15 +3,13 @@ header
     nav.navbar
       a.navbar-brand href="/"
         | Cultural Portobelo
-      / search-form starts here
-      = form_tag books_path, :method => 'get', id: "search-form", role: "search" do
+      = form_tag books_path, :method => 'get', id: "search-form", role: "search" 
         = text_field_tag :search, params[:search], class: "form-control search-query", id:"search-f", placeholder: "Buscador..." 
-      / nav-bar starts here
+    nav.navbar
       ul.nav
         li.nav-item= link_to 'Catálogo', root_path, class: "nav-link"
         li.nav-item= link_to 'Editorial', about_path, class: "nav-link"
         li.nav-item= link_to 'Contáctenos', new_contact_form_path, class: "nav-link"
-        li.nav-item= link_to 'Novedades', novedades_path, class: "nav-link"
 
       - if user_signed_in?
         ul.nav
