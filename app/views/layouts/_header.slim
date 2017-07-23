@@ -1,10 +1,14 @@
-header
-  div.container
+div.header
+  header.container
     nav.navbar
       a.navbar-brand href="/"
-        | Cultural Portobelo
-      = form_tag books_path, :method => 'get', id: "search-form", role: "search" 
-        = text_field_tag :search, params[:search], class: "form-control search-query", id:"search-f", placeholder: "Buscador..." 
+        = image_tag 'brand-logo'
+      = form_tag books_path, :method => 'get', id: "search-form", role: "search", class: "form-inline"
+        = label_tag :search, "¡Comienza tu busqueda aquí!"
+        = text_field_tag :search, params[:search], class: "form-control search-query", id:"search-f", placeholder: "Buscador..."
+        = submit_tag "Buscar", class: "btn"
+div.headerSecond
+  div.container
     nav.navbar
       ul.nav
         li.nav-item= link_to 'Catálogo', root_path, class: "nav-link"
