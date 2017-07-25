@@ -1,0 +1,11 @@
+div.jumbotron.jumbotron-fluid
+  div.container
+    h1.display-3 Fluid jumbotron
+    p.lead
+      | This is a modified jumbotron that occupies the entire horizontal space of its parent.
+div.container
+  div.row
+    div.col-md-12
+      = render 'books/index' 
+      - if current_page?('books/novedades') 
+        = render 'books/new_books_index'
