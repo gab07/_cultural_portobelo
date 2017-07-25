@@ -2,20 +2,14 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
+      @quotation_item = current_quotation.quotation_items.new
+    
     if params[:search]
       @books = Book.published_books.search(params[:search]).paginate(:page => params[:page], :per_page => 8)
-      @quotation_item = current_quotation.quotation_items.new
+      @quotation_item    
     else
       @books = Book.published_books.recent.paginate(:page => params[:page], :per_page => 8)
-      @quotation_item = current_quotation.quotation_items.new
-    end
-  end
-
-  def new_books_index
-    if params[:search]
-      @new_books = Book.new_books.search(params[:search]).paginate(:page => params[:page], :per_page => 8)
-    else
-      @new_books = Book.new_books.recent.paginate(:page => params[:page], :per_page => 8)
+      @quotation_item    
     end
   end
 

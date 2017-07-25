@@ -10,20 +10,8 @@ class Quotation < ActiveRecord::Base
 	before_save :update_subtotal
 
 	def subtotal
-    quotation_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
-  end
-
-  def update_subtotal
-    self[:subtotal] = subtotal
-  end
-
-  def quotation_client(quotation)
-  	client_name = Client.find(quotation.client_id).name
-  	client_ruc = Client.find(quotation.client_id).ruc
-  	client_dv = Client.find(quotation.client_id).dv
-  	return client_name, client_ruc, client_dv
-  end
-
+  	quotation_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
+	end
 
 	# Search functionality query for books
 	def self.search(search)
@@ -44,7 +32,9 @@ class Quotation < ActiveRecord::Base
 	  return search_array.uniq!
 	end
 
-	def subtotal
-  	quotation_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
- 	end
+	private
+	
+	def update_subtotal
+	  self[:subtotal] = subtotal
+	end
 end

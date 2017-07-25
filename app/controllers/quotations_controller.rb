@@ -11,6 +11,8 @@ class QuotationsController < ApplicationController
 
 	def show
 		@quotation_items = current_quotation.quotation_items
+		@client = Client.find(current_quotation.client_id)
+		@user = User.find(@quotation.user_id)
 	end
 
 	def new
@@ -18,19 +20,23 @@ class QuotationsController < ApplicationController
 	end
 
 	def create
+		binding.pry
 		@quotation.client_id = params[:quotation][:client_id]
+		@quotation.user_id = current_user.id
 		if @quotation.save
 			session[:quotation_id] = @quotation.id
-			redirect_to steps_path
+			redirect_to '/books'
 		else
 			render :new
 		end
 	end
 
 	def update
+		binding.pry
 		@quotation = current_quotation
+		binding.pry
 		if @quotation.update(quotation_params)
-			redirect_to steps_path
+			redirect_to '/books'
 		else
 			:edit
 		end

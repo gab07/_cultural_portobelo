@@ -22,7 +22,6 @@ gem 'twitter-bootstrap-rails'
 gem "font-awesome-rails"
 gem 'figaro'
 gem 'whenever', require: false
-gem 'wicked'
 
 group :development, :test do
   gem 'byebug'
@@ -35,5 +34,5 @@ end
 
 group :production do
 	gem 'rails_12factor', group: :production
-	gem 'pg'
+	gem 'pg', '~> 0.20.0'
 end

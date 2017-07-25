@@ -27,9 +27,6 @@
           <% @books.each do |book| %>
             <%= render "book_row", book: book, quotation_item: @quotation_item %>
           <% end %>
-          <div class="actions">
-            <%= f.submit "Checkout" %>
-          </div>
 				<% end %>
       </table>
     </div>

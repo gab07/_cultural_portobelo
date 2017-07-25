@@ -1,16 +1,21 @@
-
-
 <div class="container">	
+	<div class="row">
+		<br>
+		<%= link_to 'Agregar más libros', books_path %>
+		<br><br>
+	</div>
 	<div class="row">
 		<table class="table table-striped">
 			<tr>
-			  <th class="col-md-1">ID</th>
-			  <th class="col-md-1">Cliente</th>
 			  <th class="col-md-1">Usuario</th>
+			  <th class="col-md-1">Cliente</th>
+			  <th class="col-md-1">R.U.C.</th>
+			  <th class="col-md-1">D.V.</th>
 			  <tr>
-			  	<td><%= @quotation.id%></td>
-			  	<td><%= @quotation.client_id.nil?%></td>
-			  	<td><%= @quotation.user_id.nil?%></td>
+			  	<td><%= @user.full_name%></td>
+			  	<td><%= @client.name%></td>
+			  	<td><%= @client.ruc%></td>
+			  	<td><%= @client.dv%></td>
 			  </tr>
 			</tr>
 		</table>
@@ -22,12 +27,14 @@
 	        <table class="table table-striped">
 	          <tr>
 	            <th class="col-md-1">Portada</th>
-	            <th class="col-md-4">Título</th>
+	            <th class="col-md-2">Título</th>
 	            <th class="col-md-1">Autor</th>
 	            <th class="col-md-1">Editorial</th>
 	            <th class="col-md-1">Año</th>
-	            <th class="col-md-1">Précio</th>
 	            <th class="col-md-1">País de P.</th>
+	            <th class="col-md-1">Cantidad</th>
+	            <th class="col-md-1">Précio</th>
+	            <th class="col-md-1">Subtotal</th>
 	          </tr>
 	          <% @quotation_items.each do |quotation_item| %>
 	           <tr>
@@ -36,16 +43,33 @@
 	             <td><%= quotation_item.book.author %></td>
 	             <td><%= quotation_item.book.publisher %></td>
 	             <td><%= quotation_item.book.publication_year %></td>
-	             <td>$<%= quotation_item.book.price %>0</td>
 	             <td><%= quotation_item.book.country_of_origin %></td>
-	           </tr>
+	             <td><%= quotation_item.quantity %></td>
+	             <td>$<%= quotation_item.book.price.to_i %></td>
+	             <td>$<%= quotation_item.total_price.to_i %></td>
 	          <% end %>
+	           </tr>
 	      </table>
+	      <!-- Total and subtotal table -->
+	      <hr>
+	      <div class="row">
+		      <table class="col-md-4 pull-right">
+		        <tr>
+		          <th class="col-md-1 subtotal">Subtotal</th>
+		          <td class="col-md-1"><%= number_to_currency(@quotation.subtotal) %> </td>
+		        </tr>
+		        <tr>
+		          <th class="col-md-1 total">Total</th>
+		          <td class="col-md-1"><%= number_to_currency(@quotation.total) %> </td>
+		        </tr>
+		     	</table>
+	      </div>
+
 	      </div>
 	    </div>
 	    </div>
-
-	    <%= link_to 'Editar', edit_quotation_path(@quotation) %> |
-	    <%= link_to 'Agregar más libros', books_path %>
+			<div class="row">
+				
+			</div>
 	 </div>
-</div>
+	</div>
