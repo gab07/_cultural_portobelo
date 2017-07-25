@@ -1,0 +1,4 @@
+.hero{
+  @extend .jumbotron, .jumbotron-fluid;
+  min-height: $space-base * 18;
+}

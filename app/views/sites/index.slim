@@ -1,11 +1,45 @@
-div.jumbotron.jumbotron-fluid
+div.hero
   div.container
-    h1.display-3 Fluid jumbotron
-    p.lead
-      | This is a modified jumbotron that occupies the entire horizontal space of its parent.
+    div.row
+      div.col-lg-5
+        h1 Realizar tus pedidos desde el interior
+        p.lead
+          | ¡Nosotros te lo enviamos!
+        a class="btn btn-primary btn-lg" href="#" role="button"
+          | Ver mas >
 div.container
   div.row
-    div.col-md-12
-      = render 'books/index' 
-      - if current_page?('books/novedades') 
-        = render 'books/new_books_index'
+    h2 Ultimos libros agregados
+  div.booksGrid
+    - unless @books.empty?
+      - @books.each do |book|
+        div.booksGrid__item
+          div.text-center= link_to (image_tag book.cover.url(:medium), class: "booksGrid__thumbnail"), book_path(book.id)
+          / - if book.published == false
+          /   div.soldout-banner
+          /   p#soldout
+          /     = t("sold_out")
+          / - elsif book.discount != nil 
+          /   div.sale-banner
+          /     p#sale
+          /       | Sale!
+          div
+            h6.booksGrid__title= link_to (h truncate(book.title, :length => 45, :omission => '...')), book_path(book.id)
+            em= book.author
+            - if book.discount == nil
+              h4.booksGrid__price
+                | B/.#{ book.price.to_i }
+            - else
+              p
+                = t("was_sale")
+                = book.price.to_i
+              p
+                | $ #{book.discount.to_i}
+  div.row
+    = link_to "Ver todos los libros", books_path, class: "btn btn-secondary btn-lg"
+
+    / div.text-center
+    /   = will_paginate @books,:previous_label => 'Anterior', :next_label => 'Siguiente'
+      / Doesn't work yet
+      / - if current_page?('books/novedades') 
+      /   = render 'books/new_books_index'
