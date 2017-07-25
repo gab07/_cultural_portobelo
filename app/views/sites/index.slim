@@ -30,16 +30,15 @@ div.container
               h4.booksGrid__price
                 | B/.#{ book.price.to_i }
             - else
-              p
-                = t("was_sale")
-                = book.price.to_i
-              p
-                | $ #{book.discount.to_i}
+              h4.booksGrid__price
+                | B/.
+                = number_with_precision(book.discount.to_f, precision: 2)
+                span< class="booksGrid__discount"
+                  | B/.
+                  = number_with_precision(book.price.to_f, precision: 2)
   div.row
     = link_to "Ver todos los libros", books_path, class: "btn btn-secondary btn-lg"
 
-    / div.text-center
-    /   = will_paginate @books,:previous_label => 'Anterior', :next_label => 'Siguiente'
-      / Doesn't work yet
-      / - if current_page?('books/novedades') 
-      /   = render 'books/new_books_index'
+  / Doesn't work yet
+  / - if current_page?('books/novedades') 
+  /   = render 'books/new_books_index'

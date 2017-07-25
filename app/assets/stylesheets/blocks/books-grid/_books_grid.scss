@@ -19,3 +19,8 @@
 .booksGrid__price{
   margin-top:$space-base/2;
 }
+.booksGrid__discount{
+  font-size:1rem;
+  text-decoration: line-through;
+  color:$gray-500;
+}
