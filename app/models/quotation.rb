@@ -7,10 +7,15 @@ class Quotation < ActiveRecord::Base
 	
 	accepts_nested_attributes_for :quotation_items
 	accepts_nested_attributes_for :client
-	before_save :update_subtotal
+	before_save :update_sub_and_total
 
 	def subtotal
   	quotation_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
+	end
+
+	# tax and shipping is missing. First have to decide how the user is going to add it.
+	def total
+		subtotal
 	end
 
 	# Search functionality query for books
@@ -33,8 +38,10 @@ class Quotation < ActiveRecord::Base
 	end
 
 	private
-	
-	def update_subtotal
+
+	def update_sub_and_total
 	  self[:subtotal] = subtotal
+	  self[:total] = total
 	end
+	
 end

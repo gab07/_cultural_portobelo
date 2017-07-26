@@ -4,22 +4,35 @@
 		<%= link_to 'Agregar más libros', books_path %>
 		<br><br>
 	</div>
-	<div class="row">
-		<table class="table table-striped">
-			<tr>
-			  <th class="col-md-1">Usuario</th>
-			  <th class="col-md-1">Cliente</th>
-			  <th class="col-md-1">R.U.C.</th>
-			  <th class="col-md-1">D.V.</th>
-			  <tr>
-			  	<td><%= @user.full_name%></td>
-			  	<td><%= @client.name%></td>
-			  	<td><%= @client.ruc%></td>
-			  	<td><%= @client.dv%></td>
-			  </tr>
-			</tr>
-		</table>
-	</div>
+  <div class="row">
+  	<!-- Client info -->
+    <table class="col-md-4 pull-left">
+      <tr>
+        <th class="col-md-1">Cliente</th>
+        <td class="col-md-1"><%= @client.name %> </td>
+      </tr>
+      <tr>
+        <th class="col-md-1">R.U.C.</th>
+        <td class="col-md-1"><%= @client.ruc %> </td>
+      </tr>
+      <tr>
+        <th class="col-md-1">D.V.</th>
+        <td class="col-md-1"><%= @client.dv %> </td>
+      </tr>
+   	</table>
+		<!-- Quotation Info -->
+   	<table class="col-md-3 pull-right">
+   		<tr>
+   		  <th class="col-md-1">Cotización #</th>
+   		  <td class="col-md-1"><%= @quotation.id %> </td>
+   		</tr>
+   	  <tr>
+   	    <th class="col-md-1">Condición</th>
+   	    <td class="col-md-1"> <h5>Crédito</h5> </td>
+   	  </tr>
+   	 
+   	</table>
+  </div>
 	<div class="row">
 	    <h4>Productos</h4>
 	    <div class="row">
