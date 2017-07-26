@@ -1,0 +1,15 @@
+footer.footer
+  div.container
+    p.text-center
+      = link_to (image_tag 'facebook-icon'), 'https://www.facebook.com/culturalportobelo/'
+    div
+      ul.nav.justify-content-center
+        li.nav-item
+          = link_to 'Inicio', root_path, class: "nav-link"
+        li.nav-item
+          = link_to 'Editorial', about_path, class: "nav-link"
+        li.nav-item
+          = link_to 'Contáctenos', new_contact_form_path, class: "nav-link"
+    div
+      p.text-center
+        small Copyrights &copy; #{ Time.now.year }. Cultural Portobelo.
