@@ -10,11 +10,11 @@ div.hero
 div.container
   div.row
     h2 Ultimos libros agregados
-  div.booksGrid
+  div.books
     - unless @books.empty?
       - @books.each do |book|
-        div.booksGrid__item
-          div.text-center= link_to (image_tag book.cover.url(:medium), class: "booksGrid__thumbnail"), book_path(book.id)
+        div.books__item
+          div.text-center= link_to (image_tag book.cover.url(:medium), class: "books__thumbnail"), book_path(book.id)
           / - if book.published == false
           /   div.soldout-banner
           /   p#soldout
@@ -24,16 +24,16 @@ div.container
           /     p#sale
           /       | Sale!
           div
-            h6.booksGrid__title= link_to (h truncate(book.title, :length => 45, :omission => '...')), book_path(book.id)
+            h6.books__title= link_to (h truncate(book.title, :length => 45, :omission => '...')), book_path(book.id)
             em= book.author
             - if book.discount == nil
-              h4.booksGrid__price
+              h4.books__price
                 | B/.#{ book.price.to_i }
             - else
-              h4.booksGrid__price
+              h4.books__price
                 | B/.
                 = number_with_precision(book.discount.to_f, precision: 2)
-                span< class="booksGrid__discount"
+                span< class="books__discount"
                   | B/.
                   = number_with_precision(book.price.to_f, precision: 2)
   div.row

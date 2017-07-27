@@ -1,0 +1,43 @@
+div.container
+  div.row
+    div.col-lg-4
+      = image_tag @book.cover.url, class: 'img-fluid'
+    div.col-lg-8
+      h2= @book.title
+      h2.font-weight-normal
+        em= @book.author
+      dl
+        dt Resumen:
+        dd= @book.description
+      - if @book.discount == nil
+        h3.booksGrid__price
+          | B/.#{ @book.price.to_i }
+      - else
+        h3.booksGrid__price
+          | B/.
+          = number_with_precision(@book.discount.to_f, precision: 2)
+          span< class="booksGrid__discount"
+            | B/.
+            = number_with_precision(@book.price.to_f, precision: 2)
+  div.row
+    div.col-lg-12
+      dl.row
+        dt.col-lg-2 Titulo:
+        dl.col-lg-10= @book.title
+        dt.col-lg-2 Autor:
+        dl.col-lg-10= @book.author
+        dt.col-lg-2 Año de Publicación:
+        dl.col-lg-10= @book.publication_year
+        dt.col-lg-2 Editorial:
+        dl.col-lg-10= @book.publisher
+        dt.col-lg-2 País de origen:
+        dl.col-lg-10= @book.country_of_origin
+        - if @book.categories[0].present? 
+          dt.col-lg-2 Categoría:
+          dl.col-lg-10= @book.categories[0].name
+
+
+
+
+
+

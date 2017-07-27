@@ -1,0 +1,26 @@
+.books{
+  @extend .row;
+  margin-bottom:$space-base * 3;
+}
+.books__item{
+  @extend .col-lg-3;
+  border-bottom: solid $space-base / 12 $bg-light-blue;
+  padding-top:$space-base * 2;
+  padding-bottom:$space-base * 2; 
+}
+.books__thumbnail{
+  @extend .img-thumbnail, .border-0;
+  max-height: $space-base*6;
+  margin-bottom: $space-base;
+}
+.books__title{
+  height:2rem;
+}
+.books__price{
+  margin-top:$space-base/2;
+}
+.books__discount{
+  font-size:1rem;
+  text-decoration: line-through;
+  color:$gray-500;
+}
