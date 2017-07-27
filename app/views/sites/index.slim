@@ -13,7 +13,7 @@ div.container
   div.books
     - unless @books.empty?
       - @books.each do |book|
-        div.books__item
+        div.books__item.books__item_is-home
           div.text-center= link_to (image_tag book.cover.url(:medium), class: "books__thumbnail"), book_path(book.id)
           / - if book.published == false
           /   div.soldout-banner

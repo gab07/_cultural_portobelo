@@ -1,29 +1,36 @@
 div.container
-  div.row
-    div.col-lg-4
-      = image_tag @book.cover.url, class: 'img-fluid'
+  ul.book__nav
+    li.nav-item.mr-auto
+      = link_to 'Regresar', :back, class: "nav-link"
+    - if user_signed_in?
+      li.nav-item
+        = link_to "Editar libro", edit_book_path(@book.id), class: "nav-link"
+  div.book
+    div.book__preview
+      = image_tag @book.cover.url, class: 'book__image'
     div.col-lg-8
-      h2= @book.title
-      h2.font-weight-normal
+      h2= @book.title.humanize
+      h2.book__author
         em= @book.author
       dl
         dt Resumen:
         dd= @book.description
       - if @book.discount == nil
-        h3.booksGrid__price
+        h2.book__price
           | B/.#{ @book.price.to_i }
       - else
-        h3.booksGrid__price
+        h2.book__price
           | B/.
           = number_with_precision(@book.discount.to_f, precision: 2)
-          span< class="booksGrid__discount"
+          span< class="book__discount"
             | B/.
             = number_with_precision(@book.price.to_f, precision: 2)
-  div.row
+  div.book
     div.col-lg-12
+      h3.book__details Detalles del producto
       dl.row
         dt.col-lg-2 Titulo:
-        dl.col-lg-10= @book.title
+        dl.col-lg-10= @book.title.humanize
         dt.col-lg-2 Autor:
         dl.col-lg-10= @book.author
         dt.col-lg-2 Año de Publicación:
@@ -32,10 +39,27 @@ div.container
         dl.col-lg-10= @book.publisher
         dt.col-lg-2 País de origen:
         dl.col-lg-10= @book.country_of_origin
-        - if @book.categories[0].present? 
-          dt.col-lg-2 Categoría:
-          dl.col-lg-10= @book.categories[0].name
-
+        dt.col-lg-2 Categoría:
+        dl.col-lg-10= @book.categories.collect(&:name).join(", ")
+  div.row
+    h2 Libros similares
+  div.books
+    - Book.joins(:categories).where({categories: {id: @book.categories.collect(&:id)}}).limit(4).each do |book|
+      div.books__item
+        div.text-center= link_to (image_tag book.cover.url(:medium), class: "books__thumbnail"), book_path(book.id)
+        div
+          h6.books__title= link_to (h truncate(book.title, :length => 45, :omission => '...')), book_path(book.id)
+          em= book.author
+          - if book.discount == nil
+            h4.books__price
+              | B/.#{ book.price.to_i }
+          - else
+            h4.books__price
+              | B/.
+              = number_with_precision(book.discount.to_f, precision: 2)
+              span< class="books__discount"
+                | B/.
+                = number_with_precision(book.price.to_f, precision: 2)
 
 
 

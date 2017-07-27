@@ -1,0 +1,32 @@
+.book{
+  @extend .row;
+  border-bottom: solid $space-base / 12 $bg-light-blue;
+  padding-bottom:$space-base*2;
+  margin-bottom:$space-base*2;
+}
+.book__nav{
+  @extend .nav;
+  margin-top:$space-base;
+  padding-bottom:$space-base;
+}
+.book__preview{
+  @extend .col-lg-4, .text-center;
+}
+.book__image{
+  max-width:100%;
+  height:$space-base * 15;
+}
+.book__author{
+  @extend .font-weight-normal;
+  margin-bottom:$space-base;
+}
+.book__price{
+  @extend .books__price;
+  color:$color-blue;
+}
+.book__discount{
+  @extend .books__discount;
+}
+.book__details{
+  margin-bottom:$space-base;
+}
