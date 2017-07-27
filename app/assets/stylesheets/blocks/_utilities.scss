@@ -1,0 +1,10 @@
+.u__marginTrail{
+  margin-bottom:$space-base;
+}
+.u__paddingTrail{
+  padding-bottom:$space-base;
+}
+.u__separator{
+  @extend .u__marginTrail, .u__paddingTrail;
+  border-bottom: solid $space-base / 12 $bg-light-blue;
+}
