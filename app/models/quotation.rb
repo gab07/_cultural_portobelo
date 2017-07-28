@@ -7,23 +7,16 @@ class Quotation < ActiveRecord::Base
 	
 	accepts_nested_attributes_for :quotation_items
 	accepts_nested_attributes_for :client
-	before_save :update_subtotal
+	before_save :update_sub_and_total
 
 	def subtotal
-    quotation_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
-  end
+  	quotation_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
+	end
 
-  def update_subtotal
-    self[:subtotal] = subtotal
-  end
-
-  def quotation_client(quotation)
-  	client_name = Client.find(quotation.client_id).name
-  	client_ruc = Client.find(quotation.client_id).ruc
-  	client_dv = Client.find(quotation.client_id).dv
-  	return client_name, client_ruc, client_dv
-  end
-
+	# tax and shipping is missing. First have to decide how the user is going to add it.
+	def total
+		subtotal
+	end
 
 	# Search functionality query for books
 	def self.search(search)
@@ -44,7 +37,11 @@ class Quotation < ActiveRecord::Base
 	  return search_array.uniq!
 	end
 
-	def subtotal
-  	quotation_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
- 	end
+	private
+
+	def update_sub_and_total
+	  self[:subtotal] = subtotal
+	  self[:total] = total
+	end
+	
 end

@@ -6,12 +6,13 @@
 	        <table class="table table-striped">
 	          <tr>
 	            <th class="col-md-1">Portada</th>
-	            <th class="col-md-4">Título</th>
+	            <th class="col-md-3">Título</th>
 	            <th class="col-md-1">Autor</th>
 	            <th class="col-md-1">Editorial</th>
 	            <th class="col-md-1">Año</th>
 	            <th class="col-md-1">Précio</th>
 	            <th class="col-md-1">País de P.</th>
+	            <th class="col-md-2">Opciones</th>
 	          </tr>
 	          <% @books.each do |book| %>
 	            <%= render "book_row", book: book, quotation_item: @quotation_item %>

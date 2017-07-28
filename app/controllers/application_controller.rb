@@ -6,10 +6,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_quotation, :quotation_client
 
   def current_quotation
-    if !session[:quotation_id].nil?
-      Quotation.find(session[:quotation_id])
-    else
+    if session[:quotation_id].nil?
       Quotation.new
+    else
+      Quotation.find(session[:quotation_id])
     end
   end
 

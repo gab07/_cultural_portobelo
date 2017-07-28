@@ -18,12 +18,17 @@ class StepsController < ApplicationController
 	  
 	  def update
 	    @quotation = current_quotation
-	    @quotation.attributes = params[:quotation]
+	    @quotation.quotation_items.update(quotation_items_params)
+	    @quotation.save
 	    render_wizard @quotation
 	  end
 	  
 	private
 	  def redirect_to_finish_wizard
 	    redirect_to root_url, notice: "Thank you for signing up."
+	  end
+
+	  def quotation_items_params
+	  	params.require(:quotation_item).permit(:quantity, :book_id)
 	  end
 end
