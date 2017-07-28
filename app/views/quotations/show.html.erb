@@ -48,6 +48,7 @@
 	            <th class="col-md-1">Cantidad</th>
 	            <th class="col-md-1">Précio</th>
 	            <th class="col-md-1">Subtotal</th>
+	            <th class="col-md-1">Opciones</th>
 	          </tr>
 	          <% @quotation_items.each do |quotation_item| %>
 	           <tr>
@@ -60,6 +61,7 @@
 	             <td><%= quotation_item.quantity %></td>
 	             <td>$<%= quotation_item.book.price.to_i %></td>
 	             <td>$<%= quotation_item.total_price.to_i %></td>
+	             <td class="remove-tag"><%= link_to '-', quotation_item, method: :delete, class: "btn btn-danger", remote: true %></td>
 	          <% end %>
 	           </tr>
 	      </table>

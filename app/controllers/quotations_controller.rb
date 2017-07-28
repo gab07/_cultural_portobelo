@@ -32,7 +32,6 @@ class QuotationsController < ApplicationController
 
 	def update
 		@quotation = current_quotation
-		binding.pry
 		if @quotation.update(quotation_params)
 			redirect_to '/books'
 		else

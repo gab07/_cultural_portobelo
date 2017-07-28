@@ -1,2 +1,8 @@
-$(".cart-text").html("<%= escape_javascript(render 'layouts/cart_text') %>")
-$(".shopping-cart").html("<%= escape_javascript(render 'carts/shopping_cart') %>")
+<!-- Delete the quotation_item from the quotation -->
+$(function(){
+		$(this).remove();
+});
+
+
+<!--  -->
+$(".remove-tag").html("<%= escape_javascript(render 'quotations/show') %>")
