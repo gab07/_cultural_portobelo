@@ -1,0 +1,25 @@
+= form_for(@contact_form) do |f|
+  - if @contact_form.errors.any?
+    div#error_explanation
+      h2
+        = pluralize(@contact_form.errors.count, "error")
+        | prohibited this contact_form from being saved:
+      ul
+        - @contact_form.errors.full_messages.each do |message|
+          li= message
+  div.form-group
+    = f.label :name
+    = f.text_field :name, class: "form-control", placeholder: "Pedro Perez"
+  div.form-group
+    = f.label :email
+    = f.text_field :email, class: "form-control", placeholder: "pedro@perez.com"
+  div.form-group
+    = f.label :phone
+    = f.number_field :phone, :class => "form-control", placeholder: "6543-2345"
+  div.form-group
+    = f.label :profession
+    = f.select :profession, options_for_select([['Estudiante', 'Estudiante'], ['Profesor', 'Profesor'], ['Abogado', 'Abogado'], ['Otro', 'Otro']]), { include_blank: true }, {class: "form-control"}
+  div.form-group
+    = f.label :comment
+    = f.text_area :comment, class: "form-control", placeholder: "Me encanta lo que hacen, sigan así ..."
+  = f.submit "Enviar", class: "btn btn-secondary btn-lg"

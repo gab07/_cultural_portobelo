@@ -1,10 +1,19 @@
-.u__marginTrail{
-  margin-bottom:$space-base;
-}
-.u__paddingTrail{
-  padding-bottom:$space-base;
+@for $i from 0 through 4 {
+  $n: $space-base * $i;
+  .u__marginLeadN#{$i} {
+    margin-top: $n;
+  }
+  .u__marginTrailN#{$i} {
+    margin-bottom: $n;
+  }
+  .u__paddingLeadN#{$i} {
+    padding-top: $n;
+  }
+  .u__paddingTrailN#{$i} {
+    padding-bottom: $n;
+  }
 }
 .u__separator{
-  @extend .u__marginTrail, .u__paddingTrail;
+  @extend .u__marginTrailN1, .u__paddingTrailN1;
   border-bottom: solid $space-base / 12 $bg-light-blue;
 }
