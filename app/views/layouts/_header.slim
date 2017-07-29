@@ -1,27 +1,33 @@
 div.header
   header.container
-    nav.navbar
-      a.navbar-brand href="/"
-        = image_tag 'brand-logo'
-      = form_tag books_path, :method => 'get', id: "search-form", role: "search", class: "form-inline"
-        = label_tag :search, "¡Comienza tu busqueda aquí!"
-        = text_field_tag :search, params[:search], class: "form-control search-query", id:"search-f", placeholder: "Buscador..."
-        = submit_tag "Buscar", class: "btn"
+    div.row
+      div.brand
+        a href="/"
+          = image_tag 'brand-logo'
+      = form_tag books_path, :method => 'get', id: "search-form", role: "search", class: "searchBar"
+        = label_tag :search, "¡Comienza tu busqueda aquí!", for: "search-form", class: "searchBar_label"
+        div.row
+          div.col-9
+            = text_field_tag :search, params[:search], class: "form-control search-query", id:"search-f", placeholder: "Introduce título / autor / código de producto"
+          div.col-3
+            = submit_tag "Buscar", class: "btn btn-block btn-secondary"
 div.headerSecond
   div.container
-    nav.navbar
+    nav.navbar.mainNavbar
       ul.nav
-        li.nav-item= link_to 'Catálogo', root_path, class: "nav-link"
-        li.nav-item= link_to 'Editorial', about_path, class: "nav-link"
-        li.nav-item= link_to 'Contáctenos', new_contact_form_path, class: "nav-link"
+        li.nav-item= link_to 'Catálogo', root_path, class: "nav-link text-white"
+        li.nav-item= link_to 'Editorial', about_path, class: "nav-link text-white"
+        li.nav-item= link_to 'Contáctenos', new_contact_form_path, class: "nav-link text-white"
 
       - if user_signed_in?
-        ul.nav
-          li.nav-item= link_to "Nuevo Producto", new_book_path, class: "nav-link"
-          li.nav-item= link_to "Nuevo Categoria", new_category_path, class: "nav-link"
-          li.nav-item= link_to "Nuevo Cliente", new_client_path, class: "nav-link"
-          li.nav-item= link_to "Nuevo Cliente", new_quotation_path, class: "nav-link"
-
-        ul.nav
-          li.nav-item= link_to "Configuración", edit_user_registration_path, class: "nav-link"
-          li.nav-item= link_to 'Salir', destroy_user_session_path, method: :delete, class: "nav-link"
+        ul.nav.justify-content-end
+          li.nav-item.dropdown
+            a[class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspop]
+              | Nuevo
+            div.dropdown-menu
+              = link_to "Nuevo Producto", new_book_path, class: "dropdown-item"
+              = link_to "Nuevo Categoria", new_category_path, class: "dropdown-item"
+              = link_to "Nuevo Cliente", new_client_path, class: "dropdown-item"
+              = link_to "Nuevo Cotización", new_quotation_path, class: "dropdown-item"
+          li.nav-item= link_to "Configuración", edit_user_registration_path, class: "nav-link text-white"
+          li.nav-item= link_to 'Salir', destroy_user_session_path, method: :delete, class: "nav-link text-white"
