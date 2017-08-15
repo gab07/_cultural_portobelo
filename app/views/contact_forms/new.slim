@@ -7,20 +7,28 @@ div.container.u__marginLeadN2
     div.col-lg-1
     div.col-lg-6
       div.location
-        h4 Visitanos en nuestra sucursal!
+        h4 ¡Visitanos en nuestra sucursal!
         p.u__marginTrailN0 Vía Argentina, Edificio Tang Nº 83, P.B, Panamá
       div.location-map id="googleMap"
       div.location
         h4 Horario
         div.row
           div.col-lg-2
-            = image_tag "clock-icon.png"
+            = image_tag "clock-icon.png", class: "location-scheduleIcon"
           div.col-lg-10
-            ul
+            ul.list-unstyled
               li Lunes - Viernes: 8:00 am a 6:00 pm
               li Sábados: 9:00 am a 5:00 pm
               li Domingos: Cerrado
         h4 Telefono
-        p +507 269-9493
+        ul.list-inline
+          li.location-phoneItem
+            = image_tag "phone-icon.png", class: "location-phoneIcon"
+            | +507 269-9493
+          li.location-phoneItem 
+            = image_tag "phone-icon.png", class: "location-phoneIcon"
+            | +507 269-7018
         h4 Correo electronico
-        p info@culturalportobelo.com
+        p
+          = image_tag "email-icon.png", class: "location-emailIcon"
+          | info@culturalportobelo.com

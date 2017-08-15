@@ -6,3 +6,24 @@
   width:100%;
   height:$space-base*12;
 }
+.location-scheduleIcon{
+  @extend .img-fluid;
+  width:100%;
+}
+.location-phoneItem{
+  @extend .list-inline-item;
+  
+  &:last-of-type{
+    margin-left:$space-base*2;
+  }
+}
+.location-phoneIcon{
+  @extend .img-fluid;
+  margin-right:$space-base/4;
+  width:$space-base - 4;
+}
+.location-emailIcon{
+  @extend .img-fluid;
+  margin-right:$space-base/4;
+  width:$space-base;
+}
