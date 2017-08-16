@@ -24,26 +24,28 @@ html
     = render partial: 'layouts/facebook_pixel' 
 
   body
-    = render partial: 'layouts/header' 
-    div.flash-alerts
-      - if flash[:alert]
-        div.alert.alert-info role="alert"
-          p.flash-error
-            = flash[:alert]
-      - if flash[:notice]
-        div.alert.alert-info role="alert"
-          p.flash-notice
-            = flash[:alert]
+    header
+      = render partial: 'layouts/header' 
+    / div.flash-alerts
+    /   - if flash[:alert]
+    /     div.alert.alert-info role="alert"
+    /       p.flash-error
+    /         = flash[:alert]
+    /   - if flash[:notice]
+    /     div.alert.alert-info role="alert"
+    /       p.flash-notice
+    /         = flash[:alert]
 
-    - if current_page?(books_path)
-      div.row
-        div.col-xs-12.text-right
-          h1.cart-text
-            = render 'layouts/cart_text'
+    / - if current_page?(books_path)
+    /   div.row
+    /     div.col-xs-12.text-right
+    /       h1.cart-text
+    /         = render 'layouts/cart_text'
+    section
+      = yield
 
-    = yield
-
-    = render partial: 'layouts/footer'
+    footer
+      = render partial: 'layouts/footer'
 
     javascript:
       listener();

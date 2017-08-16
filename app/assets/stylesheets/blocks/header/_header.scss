@@ -6,3 +6,9 @@
 .headerSecond{
   background-color: $color-deep-blue;
 }
+.headerThird{
+  background-color:$white;
+  position:absolute;
+  width:100%;
+  z-index:900;
+}

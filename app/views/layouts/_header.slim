@@ -1,5 +1,5 @@
 div.header
-  header.container
+  div.container
     div.row
       div.brand
         a href="/"
@@ -15,7 +15,7 @@ div.headerSecond
   div.container
     nav.navbar.mainNavbar
       ul.nav
-        li.nav-item= link_to 'Libros', root_path, class: "nav-link text-white"
+        li.nav-item= link_to 'Ver categorías', root_path, class: "nav-link text-white"
         li.nav-item= link_to 'Editorial', about_path, class: "nav-link text-white"
         li.nav-item= link_to 'Contáctenos', new_contact_form_path, class: "nav-link text-white"
 
@@ -32,4 +32,4 @@ div.headerSecond
           li.nav-item= link_to "Configuración", edit_user_registration_path, class: "nav-link text-white"
           li.nav-item= link_to 'Salir', destroy_user_session_path, method: :delete, class: "nav-link text-white"
 div.headerThird
-  = render partial: 'layouts/categories_navbar'
+  = render partial: 'layouts/categories_nav'

@@ -1,0 +1,17 @@
+.categoryNav{
+  @extend .container;
+  margin-top:$space-base;
+  margin-bottom:$space-base * 2;
+}
+.categoryNav__title{
+  margin-bottom:$space-base;
+}
+.categoryNav__row{
+  @extend .row;
+}
+.categoryNav__list{
+  @extend .list-unstyled;
+}
+.categoryNav__listItem{
+  margin-bottom:$space-base/3;
+}
