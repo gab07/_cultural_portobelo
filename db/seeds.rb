@@ -40,3 +40,8 @@ Book.create(
 	country_of_origin: 'Mexico',
 	cover: 'http://www.clickformedia.co.uk/wp-content/uploads/2009/10/final_cover.jpg'
 	)
+20.times do |n|
+	Category.create(
+		name: 'Category_' + n.to_s
+	)
+end
