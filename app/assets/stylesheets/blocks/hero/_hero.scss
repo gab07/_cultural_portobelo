@@ -1,4 +1,13 @@
+$hero-editorial-image: 'hero-editorial';
+
 .hero{
   @extend .jumbotron, .jumbotron-fluid;
   min-height: $space-base * 18;
+  background-color:$bg-light-blue !important;
+}
+.hero_editorial{
+  background-image: asset-url($hero-editorial-image);
+  background-position-x: right;
+  background-size: 55%;
+  background-repeat: no-repeat;
 }
