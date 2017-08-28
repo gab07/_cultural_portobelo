@@ -19,7 +19,8 @@ div.container
           a.book__read-more href='#' Leer más >
       - if @book.discount == nil
         h2.book__price
-          | B/.#{ @book.price.to_i }
+          | B/.
+          = number_with_precision(@book.price.to_f, precision: 2)
       - else
         h2.book__price
           | B/.
