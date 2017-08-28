@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function(){
+  $(".headerThird, .fadeScreen").hide();
   $(".headerThird__trigger, .headerThird__close, .fadeScreen").on('click', function(e){
     e.preventDefault();
     $('.headerThird').toggle();
