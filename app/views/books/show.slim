@@ -7,7 +7,7 @@ div.container
         = link_to "Editar libro", edit_book_path(@book.id), class: "nav-link"
   div.book
     div.book__preview
-      = image_tag @book.cover.url, class: 'book__image'
+      = image_tag @book.cover.expiring_url(300), class: 'book__image'
     div.col-lg-8
       h2= @book.title.humanize
       h2.book__author
