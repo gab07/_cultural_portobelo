@@ -55,7 +55,8 @@ div.container
           em= book.author
           - if book.discount == nil
             h4.books__price
-              | B/.#{ book.price.to_i }
+              | B/.
+              = number_with_precision(book.price.to_f, precision: 2)
           - else
             h4.books__price
               | B/.
