@@ -6,10 +6,17 @@
 .headerSecond{
   background-color: $color-deep-blue;
 }
+.headerSecond__navbar{
+  padding-left:0 !important;
+  padding-right:0 !important;
+}
 .headerThird{
   background-color:$white;
   position:absolute;
   width:100%;
   z-index:900;
   display:none;
+}
+.headerThird__close{
+  cursor: pointer;
 }

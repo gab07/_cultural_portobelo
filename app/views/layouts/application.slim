@@ -42,10 +42,8 @@ html
     /       h1.cart-text
     /         = render 'layouts/cart_text'
     section
+      div.fadeScreen
       = yield
 
     footer
       = render partial: 'layouts/footer'
-
-    javascript:
-      listener();
