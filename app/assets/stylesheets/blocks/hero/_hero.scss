@@ -1,4 +1,5 @@
-$hero-editorial-image: 'hero-editorial';
+$hero-editorial-image: 'hero-editorial.png';
+$hero-home-image: 'hero-home.png';
 
 .hero{
   @extend .jumbotron, .jumbotron-fluid;
@@ -10,4 +11,7 @@ $hero-editorial-image: 'hero-editorial';
   background-position-x: right;
   background-size: 55%;
   background-repeat: no-repeat;
+}
+.hero__homeImg{
+  width:100%;
 }
