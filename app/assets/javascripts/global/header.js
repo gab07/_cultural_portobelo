@@ -13,4 +13,5 @@ $(document).on('turbolinks:load', function(){
     var keyword = $(this).attr('data-keyword');
     $('#search-f').val(keyword);
     $('#search_form').submit();
+  });
 });

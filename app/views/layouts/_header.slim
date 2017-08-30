@@ -4,7 +4,8 @@ div.header
       div.brand
         a href="/"
           = image_tag 'brand-logo'
-      = form_tag books_path, :method => 'get', id: "search-form", role: "search", class: "searchBar"
+
+      = form_tag books_path, :method => 'get', id: "search_form search-form", role: "search", class: "searchBar"
         = label_tag :search, "¡Comienza tu busqueda aquí!", for: "search-form", class: "searchBar_label"
         div.row
           div.col-9
