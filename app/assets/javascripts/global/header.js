@@ -5,13 +5,13 @@ $(document).on('turbolinks:load', function(){
     $('.headerThird').toggle();
     $('.fadeScreen').toggle();
   });
-  $('.search-field').on("click", function(){
-    $('#search-f').val("")
-    $('#search_form').submit()
+  $('#search-input').on("click",function() {
+    $(this).val('');
   });
-  $('.search-field').on("click", function(){
+  $('.search-field').on("click", function(e){
+    e.preventDefault();
     var keyword = $(this).attr('data-keyword');
-    $('#search-f').val(keyword);
-    $('#search_form').submit();
+    $('#search-input').val(keyword);
+    $('form#search-form').submit();
   });
 });
