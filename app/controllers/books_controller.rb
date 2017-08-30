@@ -5,7 +5,7 @@ class BooksController < ApplicationController
       @quotation_item = current_quotation.quotation_items.new
     
     if params[:search]
-      @books = Book.published_books.search(params[:search]).paginate(:page => params[:page], :per_page => 8)
+      @books = Book.published_books.search(params[:search]).paginate(:page => params[:page], :per_page => 12)
       @quotation_item    
     else
       @books = Book.published_books.recent.paginate(:page => params[:page], :per_page => 8)

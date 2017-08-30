@@ -1,0 +1,28 @@
+div.books
+  - @books.each do |book|
+    div.books__item.books__item_is-home
+      div.text-center= link_to (image_tag book.cover.expiring_url(300, :medium), class: "books__thumbnail"), book_path(book.id)
+      / - if book.published == false
+      /   div.soldout-banner
+      /   p#soldout
+      /     = t("sold_out")
+      / - elsif book.discount != nil 
+      /   div.sale-banner
+      /     p#sale
+      /       | Sale!
+      div
+        h6.books__title= link_to (h truncate(book.title, :length => 45, :omission => '...')), book_path(book.id)
+        em= book.author
+        - if book.discount == nil
+          h4.books__price
+            | B/.
+            = number_with_precision(book.price.to_f, precision: 2)
+        - else
+          h4.books__price
+            | B/.
+            = number_with_precision(book.discount.to_f, precision: 2)
+            span< class="books__discount"
+              | B/.
+              = number_with_precision(book.price.to_f, precision: 2)
+div.text-center
+  = will_paginate @books,:previous_label => 'Anterior', :next_label => 'Siguiente'

@@ -11,10 +11,11 @@
 }
 .book__preview{
   @extend .col-lg-4, .text-center;
+  height:$space-base * 15;
 }
 .book__image{
   max-width:100%;
-  height:$space-base * 15;
+  max-height:$space-base * 15;
 }
 .book__author{
   @extend .font-weight-normal;
