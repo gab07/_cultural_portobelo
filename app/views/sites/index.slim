@@ -39,7 +39,4 @@ div.container
                 = number_with_precision(book.price.to_f, precision: 2)
   div.row
     = link_to "Ver todos los libros", books_path, class: "btn btn-secondary btn-lg"
-
-  / Doesn't work yet
-  / - if current_page?('books/novedades') 
-  /   = render 'books/new_books_index'
+    

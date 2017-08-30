@@ -1,32 +1,33 @@
-h2 Libros
-table.table.table-striped
-  thead
-    tr
-      th Portada
-      th Título
-      th Autor
-      th Editorial
-      th Año
-      th Précio
-      th País de P.
-      th Opciones
-  tbody
-    - @books.each do |book| 
+div.row
+  h2 Libros
+  table.table.table-striped
+    thead
       tr
-        td= image_tag book.cover.url(:thumb)
-        td= book.title
-        td= book.author
-        td= book.publisher
-        td= book.publication_year
-        td= book.price 
-        td= book.country_of_origin 
-        td#new-quotation-item
-          = form_for @quotation_item, remote: true do |f|
-            div.input-group
-              = f.number_field :quantity, value: 1, class: "form-control", min: 1
-              div.input-group-btn
-                = f.hidden_field :book_id, value: book.id
-                = f.submit "Add", class: "btn btn-primary"
+        th Portada
+        th Título
+        th Autor
+        th Editorial
+        th Año
+        th Précio
+        th País de P.
+        th Opciones
+    tbody
+      - @books.each do |book| 
+        tr
+          td= image_tag book.cover.url(:thumb)
+          td= book.title
+          td= book.author
+          td= book.publisher
+          td= book.publication_year
+          td= book.price 
+          td= book.country_of_origin 
+          td#new-quotation-item
+            = form_for @quotation_item, remote: true do |f|
+              div.input-group
+                = f.number_field :quantity, value: 1, class: "form-control", min: 1
+                div.input-group-btn
+                  = f.hidden_field :book_id, value: book.id
+                  = f.submit "Add", class: "btn btn-primary"
 
-div.text-center
-  = will_paginate @books,:previous_label => 'Anterior', :next_label => 'Siguiente'
+  div.text-center
+    = will_paginate @books,:previous_label => 'Anterior', :next_label => 'Siguiente'

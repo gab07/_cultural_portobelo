@@ -1,6 +1,5 @@
 div.container
-	div.row
-		- if user_signed_in?
-			= render partial: 'books_table'
-		- else
-			= render partial: 'books_grid'
+	- if user_signed_in?
+		= render partial: 'books_table'
+	- else
+		= render partial: 'books_grid'
