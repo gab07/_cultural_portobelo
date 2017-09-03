@@ -5,7 +5,7 @@
   <%= form_for @quotation do |f| %>
     <%= f.collection_select :client_id, Client.all, :id, :name %> <br> <br>
     <p>
-    	<%= f.submit_tag "Siguiente" %>
+    	<%= f.submit "Siguiente" %>
     </p>
   <% end %>
   </div>

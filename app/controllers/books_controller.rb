@@ -3,7 +3,6 @@ class BooksController < ApplicationController
 
   def index
       @quotation_item = current_quotation.quotation_items.new
-    
     if params[:search]
       @books = Book.published_books.search(params[:search]).paginate(:page => params[:page], :per_page => 12)
       @quotation_item    
