@@ -9,7 +9,7 @@ div.container
     div.book__preview
       = image_tag @book.cover.expiring_url(300), class: 'book__image'
     div.col-lg-8
-      h2= @book.title.humanize
+      h2= @book.title.upcase
       h2.book__author
         em= @book.author
       dl
