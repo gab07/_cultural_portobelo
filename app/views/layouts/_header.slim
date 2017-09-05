@@ -9,7 +9,7 @@ div.header
         = label_tag :search, "¡Comienza tu busqueda aquí!", for: "search-form", class: "searchBar_label"
         div.row
           div.col-9
-            = text_field_tag :search, params[:search], class: "form-control search-query", id:"search-input", placeholder: "Introduce título / autor / código de producto"
+            = text_field_tag :search, params[:search], class: "form-control search-query", id:"search-input", placeholder: "Introduce título / autor / categoría / editorial"
           div.col-3
             = submit_tag "Buscar", class: "btn btn-block btn-secondary"
 div.headerSecond
